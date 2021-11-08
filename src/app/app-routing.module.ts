@@ -13,7 +13,12 @@ const routes: Routes = [
   { path: 'contact', component: ContactComponent },
   { path: 'about', component: AboutComponent },
   { path: 'signin', component: SigninComponent },
-  { path: '**', component: NotFoundComponent }
+  { path: '**', component: NotFoundComponent },
+  { path: 'httpclient', loadChildren: () => {
+      return import('./modules/application/items/items.module')
+        .then(mod => mod.ItemsModule);
+    }},
+
 ];
 
 
