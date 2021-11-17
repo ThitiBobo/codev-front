@@ -30,6 +30,10 @@ To get more help on the Angular CLI use `ng help` or go check out the [Angular C
 
 
 
+# Liens utiles 
+
 https://www.frugalprototype.com/leaflet-angular/
 
 https://www.ganatan.com/tutorials/httpclient-avec-angular
+
+https://itnext.io/choosing-a-highly-scalable-folder-structure-in-angular-d987de65ec7
