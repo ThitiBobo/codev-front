@@ -4,26 +4,25 @@ import { Routes, RouterModule } from '@angular/router';
 import { HomeComponent } from './modules/general/home/pages/home/home.component';
 import { NotFoundComponent } from './modules/general/not-found/not-found.component';
 
-
 const routes: Routes = [
   { path: '', component: HomeComponent, },
-  { path: 'contact',
+  {
+    path: 'contact',
     loadChildren: () => import('./modules/general/contact/contact.module')
-      .then(mod => mod.ContactModule)},
-  { path: 'about',
+      .then(mod => mod.ContactModule)
+  },
+  {
+    path: 'about',
     loadChildren: () => import('./modules/general/about/about.module')
-      .then(mod => mod.AboutModule)},
-  { path: 'signin',
+      .then(mod => mod.AboutModule)
+  },
+  {
+    path: 'signin',
     loadChildren: () => import('./modules/general/signin/signin.module')
-      .then(mod => mod.SigninModule)},
-  { path: '**', component: NotFoundComponent },
-  { path: 'httpclient', loadChildren: () => {
-      return import('./modules/application/items/items.module')
-        .then(mod => mod.ItemsModule);
-    }},
-
+      .then(mod => mod.SigninModule)
+  },
+  { path: '**', component: NotFoundComponent }
 ];
-
 
 @NgModule({
   imports: [RouterModule.forRoot(routes)],
