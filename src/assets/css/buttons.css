@@ -1,0 +1,81 @@
+.btn{
+  position: relative;
+  display: block;
+  margin: 30px auto;
+  padding: 10px 20px;
+  overflow: hidden;
+
+  border-width: 0;
+  outline: none;
+  border-radius: 5px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, .2);
+
+  background-color: var(--primary-color);
+  color: var(--text-color);
+  font-family: 'OpenSans Bold', sans-serif;
+  font-weight: 600;
+  transition: background-color .3s;
+}
+
+.btn:hover, .btn:focus {
+  box-shadow: 0 4px 4px rgba(0, 0, 0, .2);
+  filter: brightness(1.05);
+}
+
+.btn > * {
+  position: relative;
+}
+
+.btn:before {
+  content: "";
+
+  position: absolute;
+  top: 50%;
+  left: 50%;
+
+  display: block;
+  width: 0;
+  padding-top: 0;
+
+  border-radius: 100%;
+
+  background-color: rgba(236, 240, 241, .3);
+
+  -webkit-transform: translate(-50%, -50%);
+  -moz-transform: translate(-50%, -50%);
+  -ms-transform: translate(-50%, -50%);
+  -o-transform: translate(-50%, -50%);
+  transform: translate(-50%, -50%);
+}
+
+.btn:active:before {
+  width: 120%;
+  padding-top: 120%;
+  transition: width .2s ease-out, padding-top .2s ease-out;
+}
+
+.btn.btn-outlined{
+  background-color: rgba(0,0,0,0);
+  border-width: 2px;
+  border-style: solid;
+  border-color: var(--primary-color);
+  box-shadow: none;
+}
+
+.btn.btn-outlined:hover, .btn.btn-outlined:focus {
+  box-shadow: none;
+  background-color: rgba(236, 240, 241, .2);
+}
+
+.btn.btn-text{
+  background-color: rgba(0,0,0,0);
+  border-width: 2px;
+  border-style: solid;
+  border-color: var(--primary-color);
+  box-shadow: none;
+}
+
+.btn.btn-text:hover, .btn.btn-outlined:focus {
+  box-shadow: none;
+  background-color: rgba(236, 240, 241, .2);
+}

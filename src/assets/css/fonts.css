@@ -1,0 +1,35 @@
+
+/* OpenSans */
+
+@font-face {
+  font-family: OpenSans;
+  src: url("../font/OpenSans/OpenSans-Regular.ttf") format("TrueType");
+}
+
+/* QuickSans */
+
+@font-face {
+  font-family: Quicksand Light;
+  src: url("../font/Quicksand/Quicksand-Light.ttf") format("TrueType");
+}
+
+@font-face {
+  font-family: Quicksand;
+  src: url("../font/Quicksand/Quicksand-Regular.ttf") format("TrueType");
+}
+
+@font-face {
+  font-family: Quicksand Medium;
+  src: url("../font/Quicksand/Quicksand-Medium.ttf") format("TrueType");
+}
+
+@font-face {
+  font-family: Quicksand SemiBold;
+  src: url("../font/Quicksand/Quicksand-SemiBold.ttf") format("TrueType");
+}
+
+@font-face {
+  font-family: Quicksand Bold;
+  src: url("../font/Quicksand/Quicksand-Bold.ttf") format("TrueType");
+}
+

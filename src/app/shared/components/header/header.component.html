@@ -1,0 +1,13 @@
+<header [ngClass]="{'background-disable' : background_disabled}">
+  <h2>
+    <a href="#">Website Logo</a>
+  </h2>
+
+  <div [ngClass]="{'hidden' : connected}">
+    <button [ngClass]="{'hidden' : registration_button_disabled}" class="btn btn-outlined" type="button">REGISTER</button>
+    <button [ngClass]="{'hidden' : connection_button_disabled}" class="btn" type="button">LOGIN</button>
+  </div>
+  <div [ngClass]="{'hidden' : !connected}">
+    <p>coucou</p>
+  </div>
+</header>
