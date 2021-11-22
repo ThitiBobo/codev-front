@@ -1,1 +1,13 @@
+:host{
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  flex-grow:1;
 
+  background-color: rgba(109, 211, 109,0.2); /* test */
+}
+
+p{
+  padding: 50px;
+}
