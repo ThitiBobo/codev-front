@@ -1,4 +1,6 @@
-import { Component, OnInit } from '@angular/core';
+import {Component, Input, OnInit} from '@angular/core';
+import {Metropolis} from "../../../shared/models/metropolis.model";
+import {MetropolisService} from "../../../core/services/metropolis.service";
 
 @Component({
   selector: 'app-map-home',
@@ -7,9 +9,19 @@ import { Component, OnInit } from '@angular/core';
 })
 export class MapHomeComponent implements OnInit {
 
-  constructor() { }
+  @Input() metropolises: Metropolis[] = []
+  subscribe: any
+
+  constructor(private metropolisService: MetropolisService) { }
 
   ngOnInit(): void {
+    this.subscribe = this.metropolisService.list().subscribe(response => {
+      this.metropolises = response;
+      console.log(response)
+    })
   }
 
+  ngOnDestroy() {
+    this.subscribe.unsubscribe();
+  }
 }

@@ -19,6 +19,8 @@ import { ThemeSwitchComponent } from './shared/components/theme-switch/theme-swi
 import {MatButtonToggleModule} from "@angular/material/button-toggle";
 import {MapComponent} from "./modules/application/map/components/map/map.component";
 import { MapHomeComponent } from './modules/application/map/map-home.component';
+import {MetropolisService} from "./core/services/metropolis.service";
+import {HttpClientModule} from "@angular/common/http";
 
 @NgModule({
   declarations: [
@@ -32,6 +34,7 @@ import { MapHomeComponent } from './modules/application/map/map-home.component';
     MapHomeComponent,
   ],
   imports: [
+    HttpClientModule,
     BrowserModule,
     BrowserAnimationsModule,
     AppRoutingModule,
