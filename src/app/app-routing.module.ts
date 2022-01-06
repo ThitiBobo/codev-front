@@ -3,6 +3,8 @@ import { Routes, RouterModule } from '@angular/router';
 
 import { HomeComponent } from './modules/general/home/pages/home/home.component';
 import { NotFoundComponent } from './modules/general/not-found/not-found.component';
+import {MapComponent} from "./modules/application/map/components/map/map.component";
+import {MapHomeComponent} from "./modules/application/map/map-home.component";
 
 const routes: Routes = [
   { path: '', component: HomeComponent, },
@@ -20,6 +22,10 @@ const routes: Routes = [
     path: 'signin',
     loadChildren: () => import('./modules/general/signin/signin.module')
       .then(mod => mod.SigninModule)
+  },
+  {
+    path: 'map',
+    component: MapHomeComponent
   },
   { path: '**', component: NotFoundComponent }
 ];

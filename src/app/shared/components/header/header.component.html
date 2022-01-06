@@ -3,11 +3,38 @@
     <a href="#">Website Logo</a>
   </h2>
 
+
   <div [ngClass]="{'hidden' : connected}">
-    <button [ngClass]="{'hidden' : registration_button_disabled}" class="btn btn-outlined" type="button">REGISTER</button>
-    <button [ngClass]="{'hidden' : connection_button_disabled}" class="btn" type="button">LOGIN</button>
+    <button mat-raised-button color="basic" [ngClass]="{'hidden' : registration_button_disabled}">Register</button>
+    <button mat-raised-button color="primary" [ngClass]="{'hidden' : connection_button_disabled}">Login</button>
   </div>
   <div [ngClass]="{'hidden' : !connected}">
-    <p>coucou</p>
+    <button mat-fab color="primary" [matMenuTriggerFor]="menu">
+      <fa-icon [icon]="faUser" size="lg"></fa-icon>
+    </button>
+    <mat-menu #menu="matMenu">
+      <button mat-menu-item>
+        <fa-icon [icon]="faUser" size="lg"></fa-icon>
+        <span>Profil</span>
+      </button>
+      <mat-divider></mat-divider>
+      <button mat-menu-item>
+        <mat-icon>logout</mat-icon>
+        <span>Logout</span>
+      </button>
+    </mat-menu>
   </div>
+
+  <mat-menu #menu="matMenu">
+    <button mat-menu-item>
+      <span>Login</span>
+    </button>
+    <mat-divider></mat-divider>
+    <button mat-menu-item>
+      <span>Register</span>
+    </button>
+  </mat-menu>
+
+  <app-theme-switch></app-theme-switch>
+
 </header>
