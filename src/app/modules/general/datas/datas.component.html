@@ -1,0 +1,24 @@
+<div class="movies-content-test">
+  <h1>Datas</h1>
+
+  <div fxLayout="row wrap" fxLayoutGap="20px grid">
+    <div fxFlex.xs="100%" fxFlex.sm="50%" fxFlex.md="33%" fxFlex="20%" *ngFor="let data of datas">
+      <!--
+      <app-movie-card class="movie-card"
+                      [title]="movie.title"
+                      [coverPath]="movie.coverPath"
+                      (movieClick)="openDialog($event)"></app-movie-card>
+      -->
+
+      <div>
+        <ul>
+          <li>Code : {{data.code}}</li>
+          <li>Metropole : {{data.metropolis}}</li>
+          <li>Consommation : {{data.consumption}}</li>
+          <li>Date/heure : {{data.date_hour}}</li>
+        </ul>
+      </div>
+      <br />
+    </div>
+  </div>
+</div>
