@@ -16,7 +16,7 @@ export class HeaderComponent implements OnInit {
   background_disabled: boolean = false
   connection_button_disabled: boolean = false
   registration_button_disabled: boolean = false
-  connected: boolean = true
+  connected: boolean = false
 
   constructor() { }
 
