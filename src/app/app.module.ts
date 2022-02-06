@@ -20,6 +20,7 @@ import { ThemeSwitchComponent } from './shared/components/theme-switch/theme-swi
 import { ProfilFabComponent } from './shared/components/profil-fab/profil-fab.component';
 import {MatButtonModule} from "@angular/material/button";
 
+
 @NgModule({
   declarations: [
     AppComponent,
@@ -43,8 +44,11 @@ import {MatButtonModule} from "@angular/material/button";
     MatIconModule,
     MatButtonModule,
     FontAwesomeModule,
+    BrowserAnimationsModule
   ],
   providers: [{provide: HTTP_INTERCEPTORS, useClass: JwtInterceptor, multi: true},],
+  exports: [
+  ],
   bootstrap: [AppComponent]
 })
 export class AppModule {

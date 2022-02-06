@@ -5,6 +5,7 @@ import { HomeComponent } from './modules/general/home/pages/home/home.component'
 import { NotFoundComponent } from './modules/general/not-found/not-found.component';
 
 import {DatasComponent} from "./modules/general/datas/datas.component";
+import {ListComponent} from "./modules/general/list/list.component";
 
 const routes: Routes = [
   { path: '', component: HomeComponent, },
@@ -27,6 +28,12 @@ const routes: Routes = [
     path: 'datas', component: DatasComponent,
     loadChildren: () => import("./modules/general/datas/datas.module")
       .then(mod => mod.DatasModule)
+  },
+  {
+    path: 'list', component: ListComponent,
+    loadChildren: () => import("./modules/general/list/list.module")
+      .then(mod => mod.ListModule)
+  }
   },
 
   { path: '**', component: NotFoundComponent },

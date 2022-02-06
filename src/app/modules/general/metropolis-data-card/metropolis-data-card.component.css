@@ -1,0 +1,23 @@
+
+.flex-container {
+  display : flex;
+  flex-direction: row;
+  width: 100%;
+  justify-content: space-between;
+  margin: 10px;
+}
+
+.flex-expendable {
+  margin: 10px;
+  width: 95%;
+}
+
+.flex-infos {
+  display : flex;
+  flex-direction: row;
+  justify-content: space-between;
+}
+
+.flex-item {
+  margin-left: 50px;
+}

@@ -1,0 +1,13 @@
+
+<mat-expansion-panel class="flex-expendable">
+  <mat-expansion-panel-header>
+    <div class="flex-container">
+      <div>{{data.metropolis}}</div>
+      <div class="flex-infos">
+        <div class="flex-item">{{data.date_hour | date : 'dd/MM/yyyy  HH:mm'}}</div>
+        <div class="flex-item">{{data.consumption}} kwh</div>
+      </div>
+    </div>
+  </mat-expansion-panel-header>
+  <app-metropolis-data-history ></app-metropolis-data-history>
+</mat-expansion-panel>
