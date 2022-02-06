@@ -48,6 +48,7 @@ import {MatButtonModule} from "@angular/material/button";
   ],
   providers: [{provide: HTTP_INTERCEPTORS, useClass: JwtInterceptor, multi: true},],
   exports: [
+
   ],
   bootstrap: [AppComponent]
 })

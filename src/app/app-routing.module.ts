@@ -6,6 +6,7 @@ import { NotFoundComponent } from './modules/general/not-found/not-found.compone
 
 import {DatasComponent} from "./modules/general/datas/datas.component";
 import {ListComponent} from "./modules/general/list/list.component";
+import {MapComponent} from "./modules/general/map/map.component";
 
 const routes: Routes = [
   { path: '', component: HomeComponent, },
