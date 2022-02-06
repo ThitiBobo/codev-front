@@ -5,7 +5,7 @@ import {HttpClient} from "@angular/common/http";
 import {Observable} from "rxjs";
 import {catchError, retry} from "rxjs/operators";
 import {Injectable} from "@angular/core";
-import {DataResponse} from "../models/dataResponse";
+import {DataList} from "../models/data-list";
 
 @Injectable({
   providedIn: 'root'
@@ -17,11 +17,11 @@ export class DataService extends ApiBaseService<Data> {
     super();
   }
 
-  list(): Observable<DataResponse> {
+  list(): Observable<DataList> {
     const url = this.apiUrl + this.path
     console.log(url)
     var v = this.http.get<any>(url).pipe(
-      retry(3), catchError(this.handleError<DataResponse>('data.list', new DataResponse([],[],[]))));
+      retry(3), catchError(this.handleError<DataList>('data.list', new DataList([],[],[]))));
     console.log("v = ", v)
     return v;
   }

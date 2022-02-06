@@ -1,13 +1,27 @@
 import {Injectable} from "@angular/core";
 
 export class User {
-  private _id!: string;
-  private _username!: string;
-  private _email!: string;
-  private _token!: string;
-  private _tokenType!: string;
-  private _password!: string;
+  private _id: string;
+  private _email: string;
+  private _firstname: string
+  private _lastname: string
 
+
+  constructor(id: string, email: string, firstname: string, lastname: string) {
+    this._id = id;
+    this._email = email;
+    this._firstname = firstname;
+    this._lastname = lastname;
+  }
+
+
+  get firstname(): string {
+    return this._firstname;
+  }
+
+  set firstname(value: string) {
+    this._firstname = value;
+  }
 
   get id(): string {
     return this._id;
@@ -15,14 +29,6 @@ export class User {
 
   set id(value: string) {
     this._id = value;
-  }
-
-  get username(): string {
-    return this._username;
-  }
-
-  set username(value: string) {
-    this._username = value;
   }
 
   get email(): string {
@@ -33,28 +39,12 @@ export class User {
     this._email = value;
   }
 
-  get token(): string {
-    return this._token;
+  get lastname(): string {
+    return this._lastname;
   }
 
-  set token(value: string) {
-    this._token = value;
-  }
-
-  get tokenType(): string {
-    return this._tokenType;
-  }
-
-  set tokenType(value: string) {
-    this._tokenType = value;
-  }
-
-  get password(): string {
-    return this._password;
-  }
-
-  set password(value: string) {
-    this._password = value;
+  set lastname(value: string) {
+    this._lastname = value;
   }
 }
 
@@ -63,11 +53,7 @@ export class User {
 })
 export class RegisterRequestAdapter {
   public static adapt(user: User): any {
-    return {
-      username: user.username,
-      email: user.email,
-      password: user.password
-    }
+    return null
   }
 }
 

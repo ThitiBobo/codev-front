@@ -3,16 +3,15 @@
 export class Data {
   private _code : string;
   private _metropolis : string;
-  private _date_hour : string;
+  private _dateHour : Date
   private _consumption: number;
 
-  constructor(code: string = "", metropolis: string = "", date_hour: string = "", consumption: number = 0) {
+  constructor(code: string = "", metropolis: string = "", dateHour: Date, consumption: number = 0) {
     this._code = code
     this._metropolis = metropolis
-    this._date_hour = date_hour
+    this._dateHour = dateHour
     this._consumption = consumption
   }
-
 
   get code(): string {
     return this._code;
@@ -30,14 +29,6 @@ export class Data {
     this._metropolis = value;
   }
 
-  get date_hour(): string {
-    return this._date_hour;
-  }
-
-  set dateHour(value: string) {
-    this._date_hour = value;
-  }
-
   get consumption(): number {
     return this._consumption;
   }
@@ -46,6 +37,11 @@ export class Data {
     this._consumption = value;
   }
 
+  get dateHour(): Date {
+    return this._dateHour;
+  }
 
-
+  set dateHour(value: Date) {
+    this._dateHour = value;
+  }
 }
