@@ -71,7 +71,7 @@ export class User {
 @Injectable({
   providedIn: "root",
 })
-export class RegisterRequestAdapter {
+export class UserAdapter {
   public static adapt(item: any): User {
     return new User(
       item.id,
@@ -84,3 +84,15 @@ export class RegisterRequestAdapter {
   }
 }
 
+@Injectable({
+  providedIn: "root",
+})
+export class RegisterRequestAdapter {
+  public static adapt(user: User, password: string): any {
+    return {
+      username: user.firstname,
+      email: user.email,
+      password: password
+    }
+  }
+}
