@@ -1,3 +1,6 @@
+import {Injectable} from "@angular/core";
+import {DataList} from "./data-list";
+import {DatePipe} from "@angular/common";
 
 
 export class Data {
@@ -43,5 +46,20 @@ export class Data {
 
   set dateHour(value: Date) {
     this._dateHour = value;
+  }
+}
+
+@Injectable({
+  providedIn: "root",
+})
+export class DataAdapter {
+
+  public static adapt(item: any): Data{
+    return new Data(
+      item.code,
+      item.metropolis,
+      new Date(item.date_hour),
+      item.consumption
+    )
   }
 }

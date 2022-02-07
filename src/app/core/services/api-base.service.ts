@@ -6,8 +6,6 @@ import { Observable, of } from 'rxjs';
 import { HttpHeaders } from '@angular/common/http';
 import {environment} from "../../../environments/environment";
 
-
-//const API_URL = 'http://localhost:8080/';
 const API_URL = environment.apiUrl + '/';
 const HTTP_OPTIONS = {
   headers: new HttpHeaders({

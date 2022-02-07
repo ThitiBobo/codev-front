@@ -24,7 +24,7 @@ export class DatasComponent implements OnInit {
     console.log(this.dataService.list());
 
     this.subscribe = this.dataService.list().subscribe(response => {
-      this.datas = response.recentData.map(item => new Data(item.code, item.metropolis, item.date_hour, item.consumption))
+      //this.datas = response.recentData.map(item => new Data(item.code, item.metropolis, item.date_hour, item.consumption))
       console.log("response : ", response.recentData)
     })
 

@@ -1,4 +1,6 @@
-import {Data} from "./data";
+import {Data, DataAdapter} from "./data";
+import {Injectable} from "@angular/core";
+import {User} from "./user";
 
 export class DataList {
   private _recentData : Data[];
@@ -33,5 +35,34 @@ export class DataList {
 
   set preferences(value: Data[]) {
     this._preferences = value;
+  }
+}
+
+@Injectable({
+  providedIn: "root",
+})
+export class DataListAdapter {
+  public static adapt(item: any): DataList{
+
+    var recentData: Data[] = []
+    item.recentData.forEach((element: any) => {
+      recentData.push(DataAdapter.adapt(element))
+    })
+
+    var otherData: Data[] = []
+    item.otherData.forEach((element: any) => {
+      otherData.push(DataAdapter.adapt(element))
+    })
+
+    var preferences: Data[] = []
+    item.preferences.forEach((element: any) => {
+      preferences.push(DataAdapter.adapt(element))
+    })
+
+    return new DataList(
+      recentData,
+      otherData,
+      preferences
+    )
   }
 }
