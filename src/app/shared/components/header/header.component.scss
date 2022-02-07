@@ -1,0 +1,97 @@
+$breakpoints-xs: 0px;
+$breakpoints-sm: 576px;
+$breakpoints-md: 768px;
+$breakpoints-lg: 992px;
+$breakpoints-xl: 1200px;
+$breakpoints-xxl: 1400px;
+
+
+header {
+  z-index: 10;
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 15px 20px;
+
+  /*background-color: #dc3545;*/
+  color: #FFF
+
+
+}
+
+header div {
+  display: inherit;
+  align-items: center;
+  height: 100%;
+}
+
+header a {
+  margin: 0;
+  display: flex;
+  align-items: center;
+
+  h2 {
+    margin: 0 0 0 20px;
+    font: 2.5em "YellowTail";
+  }
+}
+
+div.right-bloc > * {
+  padding: 0 10px;
+}
+
+#title {
+  display: none;
+}
+
+.hidden {
+  display: none !important;
+}
+
+app-navbar {
+  display: none;
+}
+
+app-profil-fab {
+  display: none;
+}
+
+#menu {
+  width: 45px !important;
+  min-width: unset !important;
+  height: 45px;
+}
+
+@media (min-width: $breakpoints-sm) {
+  app-navbar {
+    display: block;
+  }
+}
+
+@media (min-width: $breakpoints-md) {
+
+  app-profil-fab {
+    display: block;
+  }
+
+  #menu {
+    display: none;
+  }
+}
+
+h3 {
+  text-align: center;
+  margin-bottom: 10px;
+}
+
+@media (min-width: $breakpoints-lg) {
+  #title {
+    display: block;
+  }
+
+  app-navbar {
+    padding: 0 40px;
+  }
+
+}

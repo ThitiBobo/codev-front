@@ -12,6 +12,13 @@ import {JwtInterceptor} from "./core/interceptors/jwt-interceptor.interceptor";
 import {BrowserAnimationsModule} from '@angular/platform-browser/animations';
 import {MatCardModule} from "@angular/material/card";
 import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
+import {MatDividerModule} from "@angular/material/divider";
+import {MatMenuModule} from "@angular/material/menu";
+import {MatIconModule} from "@angular/material/icon";
+import { NavbarComponent } from './shared/components/navbar/navbar.component';
+import { ThemeSwitchComponent } from './shared/components/theme-switch/theme-switch.component';
+import { ProfilFabComponent } from './shared/components/profil-fab/profil-fab.component';
+import {MatButtonModule} from "@angular/material/button";
 
 @NgModule({
   declarations: [
@@ -20,6 +27,9 @@ import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
     NotFoundComponent,
     HeaderComponent,
     FooterComponent,
+    NavbarComponent,
+    ThemeSwitchComponent,
+    ProfilFabComponent,
   ],
   imports: [
     BrowserModule,
@@ -27,6 +37,11 @@ import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
     AppRoutingModule,
     HttpClientModule,
     MatCardModule,
+    MatDividerModule,
+    MatIconModule,
+    MatMenuModule,
+    MatIconModule,
+    MatButtonModule,
     FontAwesomeModule,
   ],
   providers: [{provide: HTTP_INTERCEPTORS, useClass: JwtInterceptor, multi: true},],
