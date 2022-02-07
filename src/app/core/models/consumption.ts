@@ -1,3 +1,5 @@
+import {Injectable} from "@angular/core";
+import {DataDetail} from "./data-detail";
 
 export class Consumption{
 
@@ -25,5 +27,15 @@ export class Consumption{
 
   set date(value: Date) {
     this._date = value;
+  }
+}
+
+@Injectable({
+  providedIn: "root",
+})
+export class ConsumptionAdapter {
+
+  public static adapt(item: any): Consumption{
+    return new Consumption(item.date, item.value)
   }
 }

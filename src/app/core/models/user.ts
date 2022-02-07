@@ -72,8 +72,15 @@ export class User {
   providedIn: "root",
 })
 export class RegisterRequestAdapter {
-  public static adapt(user: User): any {
-    return null
+  public static adapt(item: any): User {
+    return new User(
+      item.id,
+      item.email,
+      item.username,
+      item.username,
+      item.accessToken,
+      item.tokenType
+    )
   }
 }
 

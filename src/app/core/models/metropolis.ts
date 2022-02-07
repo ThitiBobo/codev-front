@@ -1,3 +1,5 @@
+import {Injectable} from "@angular/core";
+import {Data} from "./data";
 
 
 export class Metropolis {
@@ -55,6 +57,20 @@ export class Metropolis {
   set latitude(value: number) {
     this._latitude = value;
   }
+}
 
+@Injectable({
+  providedIn: "root",
+})
+export class MetropolisAdapter{
 
+  public static adapt(item: any): Metropolis{
+    return new Metropolis(
+      item.id,
+      item.code,
+      item.name,
+      item.longitude,
+      item.latitude,
+    )
+  }
 }
