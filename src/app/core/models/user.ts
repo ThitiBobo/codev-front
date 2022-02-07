@@ -1,16 +1,17 @@
 import {Injectable} from "@angular/core";
 
 export class User {
-  private _id: string;
+  private _id!: string | null;
   private _email: string;
   private _firstname: string
   private _lastname: string
 
-  private _token: string
-  private _tokenType: string
+  private _token: string | null
+  private _tokenType: string | null
 
 
-  constructor(id: string, email: string, firstname: string, lastname: string, token: string, tokenType: string) {
+  constructor(id: string | null, email: string, firstname: string, lastname: string,
+              token: string | null, tokenType: string | null) {
     this._id = id;
     this._email = email;
     this._firstname = firstname;
@@ -19,19 +20,12 @@ export class User {
     this._tokenType = tokenType;
   }
 
-  get firstname(): string {
-    return this._firstname;
-  }
 
-  set firstname(value: string) {
-    this._firstname = value;
-  }
-
-  get id(): string {
+  get id(): string | null {
     return this._id;
   }
 
-  set id(value: string) {
+  set id(value: string | null) {
     this._id = value;
   }
 
@@ -43,6 +37,14 @@ export class User {
     this._email = value;
   }
 
+  get firstname(): string {
+    return this._firstname;
+  }
+
+  set firstname(value: string) {
+    this._firstname = value;
+  }
+
   get lastname(): string {
     return this._lastname;
   }
@@ -51,19 +53,19 @@ export class User {
     this._lastname = value;
   }
 
-  get token(): string {
+  get token(): string | null {
     return this._token;
   }
 
-  set token(value: string) {
+  set token(value: string | null) {
     this._token = value;
   }
 
-  get tokenType(): string {
+  get tokenType(): string | null {
     return this._tokenType;
   }
 
-  set tokenType(value: string) {
+  set tokenType(value: string | null) {
     this._tokenType = value;
   }
 }
