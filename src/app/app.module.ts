@@ -11,14 +11,6 @@ import {HTTP_INTERCEPTORS, HttpClientModule} from "@angular/common/http";
 import {JwtInterceptor} from "./core/interceptors/jwt-interceptor.interceptor";
 import {BrowserAnimationsModule} from '@angular/platform-browser/animations';
 import {MatCardModule} from "@angular/material/card";
-import {LayoutModule} from "@angular/cdk/layout";
-import {MatButtonModule} from "@angular/material/button";
-import {MatToolbarModule} from "@angular/material/toolbar";
-import {MatIconModule} from "@angular/material/icon";
-import {MatMenuModule} from "@angular/material/menu";
-import {MatButtonToggleModule} from "@angular/material/button-toggle";
-import {MatListModule} from "@angular/material/list";
-import {MatSidenavModule} from "@angular/material/sidenav";
 
 @NgModule({
   declarations: [
@@ -30,9 +22,9 @@ import {MatSidenavModule} from "@angular/material/sidenav";
   ],
   imports: [
     BrowserModule,
+    BrowserAnimationsModule,
     AppRoutingModule,
     HttpClientModule,
-
     MatCardModule,
   ],
   providers: [{provide: HTTP_INTERCEPTORS, useClass: JwtInterceptor, multi: true},],
