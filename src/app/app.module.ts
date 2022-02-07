@@ -32,7 +32,6 @@ import {MatSidenavModule} from "@angular/material/sidenav";
     BrowserModule,
     AppRoutingModule,
     HttpClientModule,
-
     MatCardModule,
   ],
   providers: [{provide: HTTP_INTERCEPTORS, useClass: JwtInterceptor, multi: true},],

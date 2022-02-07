@@ -19,17 +19,17 @@ const routes: Routes = [
       .then(mod => mod.AboutModule)
   },
   {
-    path: 'signin',
-    loadChildren: () => import('./modules/general/signin/signin.module')
-      .then(mod => mod.SigninModule)
+    path: 'auth',
+    loadChildren: () => import('./modules/account/account.module')
+      .then(mod => mod.AccountModule)
   },
-  //{ path: '**', component: NotFoundComponent },
-
   {
     path: 'datas', component: DatasComponent,
     loadChildren: () => import("./modules/general/datas/datas.module")
       .then(mod => mod.DatasModule)
-  }
+  },
+
+  { path: '**', component: NotFoundComponent },
 ];
 
 @NgModule({
