@@ -1,16 +1,18 @@
+import {Injectable} from "@angular/core";
+import {Data} from "./data";
 
 
 export class Metropolis {
   private _id : number;
   private _code : string;
-  private _nom : string;
+  private _name : string;
   private _longitude : number;
   private _latitude : number;
 
-  constructor(id: number, code: string, nom: string, longitude: number, latitude: number) {
+  constructor(id: number, code: string, name: string, longitude: number, latitude: number) {
     this._id = id;
     this._code = code;
-    this._nom = nom;
+    this._name = name;
     this._longitude = longitude;
     this._latitude = latitude;
   }
@@ -32,12 +34,12 @@ export class Metropolis {
     this._code = value;
   }
 
-  get nom(): string {
-    return this._nom;
+  get name(): string {
+    return this._name;
   }
 
-  set nom(value: string) {
-    this._nom = value;
+  set name(value: string) {
+    this._name = value;
   }
 
   get longitude(): number {
@@ -55,6 +57,20 @@ export class Metropolis {
   set latitude(value: number) {
     this._latitude = value;
   }
+}
 
+@Injectable({
+  providedIn: "root",
+})
+export class MetropolisAdapter{
 
+  public static adapt(item: any): Metropolis{
+    return new Metropolis(
+      item.id,
+      item.code,
+      item.name,
+      item.longitude,
+      item.latitude,
+    )
+  }
 }
