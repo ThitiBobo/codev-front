@@ -1,0 +1,26 @@
+@use '/node_modules/@angular/material/index' as mat;
+
+@use 'sass:map';
+@use '/src/app/shared/components/footer/footer-theme' as footer;
+@use '/src/app/shared/components/header/header-theme' as header;
+@use '/src/app/shared/components/theme-switch/theme-switch-theme' as theme-switch;
+
+@mixin theme($theme) {
+
+  $primary: map.get($theme, primary);
+  $accent: map.get($theme, accent);
+  $warn: map.get($theme, warn);
+  $background: map.get($theme, background);
+  $foreground: map.get($theme, foreground);
+  $is-dark-theme: map.get($theme, is-dark);
+
+  .docs-app-background {
+    background: mat.get-color-from-palette($background, background);
+    color: mat.get-color-from-palette($foreground, text);
+  }
+
+  @include footer.theme($theme);
+  @include header.theme($theme);
+  @include theme-switch.theme($theme);
+}
+

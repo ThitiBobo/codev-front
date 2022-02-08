@@ -31,7 +31,9 @@
               "src/styles.css",
               "src/assets/css/fonts.css",
               "src/assets/css/colors.css",
-              "src/assets/css/buttons.css"
+              "src/assets/css/buttons.css",
+              "src/assets/style/theme.scss"
+
             ],
             "scripts": []
           },

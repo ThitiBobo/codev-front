@@ -1,0 +1,22 @@
+@use 'sass:map';
+@use '/node_modules/@angular/material/index' as mat;
+
+@mixin theme($theme) {
+
+  $primary: map.get($theme, primary);
+  $accent: map.get($theme, accent);
+  $warn: map.get($theme, warn);
+  $background: map.get($theme, background);
+  $foreground: map.get($theme, foreground);
+
+  app-theme-switch{
+
+    button.theming-button{
+      background-color: mat.get-color-from-palette($primary)!important;
+    }
+    mat-icon{
+      color: mat.get-color-from-palette($primary, 50);
+    }
+
+  }
+}
