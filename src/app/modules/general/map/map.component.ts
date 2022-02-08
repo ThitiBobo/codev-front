@@ -43,9 +43,9 @@ export class MapComponent implements OnInit {
     });
 
     this.subscribe = this.dataService.list().subscribe(response => {
-      this.recentData = response.recentData.map(item => new Data(item.code, item.metropolis, item.date_hour, item.consumption))
-      this.favouriteData = response.preferences.map(item => new Data(item.code, item.metropolis, item.date_hour, item.consumption))
-      this.oldData = response.otherData.map(item => new Data(item.code, item.metropolis, item.date_hour, item.consumption))
+      this.recentData = response.recentData.map(item => new Data(item.code, item.metropolis, item.dateHour, item.consumption))
+      this.favouriteData = response.preferences.map(item => new Data(item.code, item.metropolis, item.dateHour, item.consumption))
+      this.oldData = response.otherData.map(item => new Data(item.code, item.metropolis, item.dateHour, item.consumption))
       let datas = this.recentData.concat(this.oldData).concat(this.favouriteData)
       console.log("response : ", response.recentData)
       this.subscribe = this.metropolisservice.list().subscribe(response => {
@@ -53,7 +53,7 @@ export class MapComponent implements OnInit {
         for (let metropolis of this.metropolis) {
           for (let data of datas) {
             if (data.code == metropolis.code) {
-              let date = this.datePipe.transform(data.date_hour,'dd/MM/yyyy HH:mm');
+              let date = this.datePipe.transform(data.dateHour,'dd/MM/yyyy HH:mm');
               let tag = "<b>Métropole :</b> " + data.metropolis + "<br/><b>Consommation :</b> " + data.consumption + "MWh <br/><b>Date de la donnée :</b> " + date
               L.marker([metropolis.latitude, metropolis.longitude], {icon: myIcon}).bindPopup(tag).addTo(map).openPopup();
             }

@@ -34,9 +34,7 @@ const routes: Routes = [
     path: 'list', component: ListComponent,
     loadChildren: () => import("./modules/general/list/list.module")
       .then(mod => mod.ListModule)
-  }
   },
-
   { path: '**', component: NotFoundComponent },
 ];
 

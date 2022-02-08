@@ -9,7 +9,7 @@ import {DataService} from "../../../core/services/data.service";
 })
 export class MetropolisDataCardComponent implements OnInit {
 
-  @Input() data: Data = new Data()
+  @Input() data!: Data
   @Input() history: any[] = []
 
   constructor(private dataservice : DataService) { }
