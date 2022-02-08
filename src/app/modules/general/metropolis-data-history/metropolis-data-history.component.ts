@@ -11,6 +11,8 @@ import {
   ApexTitleSubtitle,
   ApexLegend
 } from "ng-apexcharts";
+import {DataService} from "../../../core/services/data.service";
+import {Observable} from "rxjs";
 
 export type ChartOptions = {
   series: ApexAxisChartSeries;
@@ -31,53 +33,86 @@ export type ChartOptions = {
   styleUrls: ["./metropolis-data-history.component.css"]
 })
 export class MetropolisDataHistoryComponent implements OnInit {
-  @Input() series: any[] = [[12, 34],[12, 34]]
-  // @ts-ignore
-  @ViewChild("chart", {static: false}) chart: ChartComponent;
-  public chartOptions: ChartOptions;
 
-  constructor() {
-    this.chartOptions = {
-      series: [
-        {
-          name: "STOCK ABC",
-          data: this.series[1]
-        }
-      ],
-      chart: {
-        type: "area",
-        height: 350,
-        zoom: {
-          enabled: false
-        }
-      },
-      dataLabels: {
-        enabled: false
-      },
-      stroke: {
-        curve: "straight"
-      },
+  @Input() extendEvent!: Observable<void>
 
-      title: {
-        text: "Fundamental Analysis of Stocks",
-        align: "left"
-      },
-      subtitle: {
-        text: "Price Movements",
-        align: "left"
-      },
-      labels: this.series[0],
-      xaxis: {
-        type: "datetime"
-      },
-      yaxis: {
-        opposite: true
-      },
-      legend: {
-        horizontalAlign: "left"
-      }
-    };
+  @Input() consommations: any[] = []
+  @Input() dates: any[] = []
+  @Input() code!: string
+
+  private subscribe: any
+  private flag: boolean = true
+
+  @ViewChild("chart") chart!: ChartComponent;
+  public chartOptions!: ChartOptions;
+
+  constructor(private dataservice: DataService) {
   }
+
   ngOnInit(): void {
+    this.extendEvent.subscribe(() => this.initChart())
+  }
+
+  // TODO : CHECK OFFSET / RESPONSIVENESS
+
+  initChart() {
+    if (this.flag) {
+      this.flag = false
+      this.subscribe = this.dataservice.getConsumption(this.code, 30).subscribe(response => {
+        response.history.forEach(e => {
+          this.consommations.push(e.consumption)
+          this.dates.push(e.date)
+        })
+
+        this.chartOptions = {
+          series: [
+            {
+              name: "",
+              data: this.consommations
+            }
+          ],
+          chart: {
+            offsetX: -400,
+            type: "area",
+            height: 350,
+            width: 1500,
+            zoom: {
+              enabled: true
+            }
+          },
+          dataLabels: {
+            offsetX: -400,
+            enabled: false
+          },
+          stroke: {
+            curve: "straight"
+          },
+
+          title: {
+            text: "Historique de la consommation (MWh)",
+            align: "left"
+          },
+          subtitle: {
+            text: "",
+            align: "left"
+          },
+          labels: this.dates,
+          xaxis: {
+            type: "datetime",
+            title: {
+              text: "Heure"
+            }
+
+          },
+          yaxis: {
+            show: true,
+          },
+          legend: {
+            offsetX: -400,
+            horizontalAlign: "left"
+          },
+        };
+      })
+    }
   }
 }

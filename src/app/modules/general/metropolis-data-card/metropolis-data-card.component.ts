@@ -1,6 +1,6 @@
 import {Component, Input, OnInit} from '@angular/core';
 import {Data} from "../../../core/models/data";
-import {DataService} from "../../../core/services/data.service";
+import {Subject} from "rxjs";
 
 @Component({
   selector: 'app-metropolis-data-card',
@@ -12,12 +12,13 @@ export class MetropolisDataCardComponent implements OnInit {
   @Input() data!: Data
   @Input() history: any[] = []
 
-  constructor(private dataservice : DataService) { }
+  extendEvent: Subject<void> = new Subject<void>()
+  constructor() { }
 
   ngOnInit(): void {
   }
 
   onExpand(event: void) {
-    //this.history = this.dataservice.getHistory()
+    this.extendEvent.next()
   }
 }

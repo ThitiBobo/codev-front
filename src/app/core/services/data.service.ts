@@ -37,7 +37,7 @@ export class DataService extends ApiBaseService<Data> {
   }
 
   getConsumption(code: string, rows: number, start?: Date, end?: Date): Observable<DataDetail>{
-    var url = this.apiUrl + this.path + '/' + code + 'period'
+    var url = this.apiUrl + this.path + code + '/' + 'period'
     url = url + '?number=' + rows
     if (start) url = url + "&start=" + start.toString()
     if (end) url = url + "&end=" + end.toString()

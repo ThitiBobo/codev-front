@@ -7,6 +7,7 @@ import {Metropolis} from "../../../core/models/metropolis";
 import {Data} from "../../../core/models/data";
 import {DataService} from "../../../core/services/data.service";
 import {DatePipe} from "@angular/common";
+import {bounds, LatLng, LatLngBounds} from "leaflet";
 
 @Component({
   selector: 'app-map',
@@ -25,10 +26,11 @@ export class MapComponent implements OnInit {
   }
 
   ngOnInit() {
-    // Déclaration de la carte avec les coordonnées du centre et le niveau de zoom.
 
     const map = L.map('frugal-map', {
       zoom: 6,
+      minZoom: 6,
+      maxBounds: [[52.12654376336455, -7.5374187123097], [41.6644617653649, 11.183282892191622]],
       scrollWheelZoom: false,
       center: [46.9, 3.5],
     });
@@ -47,7 +49,6 @@ export class MapComponent implements OnInit {
       this.favouriteData = response.preferences.map(item => new Data(item.code, item.metropolis, item.dateHour, item.consumption))
       this.oldData = response.otherData.map(item => new Data(item.code, item.metropolis, item.dateHour, item.consumption))
       let datas = this.recentData.concat(this.oldData).concat(this.favouriteData)
-      console.log("response : ", response.recentData)
       this.subscribe = this.metropolisservice.list().subscribe(response => {
         this.metropolis = response
         for (let metropolis of this.metropolis) {

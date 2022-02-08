@@ -36,6 +36,6 @@ export class Consumption{
 export class ConsumptionAdapter {
 
   public static adapt(item: any): Consumption{
-    return new Consumption(item.date, item.value)
+    return new Consumption(item.value, item.date)
   }
 }
