@@ -1,9 +1,9 @@
 <div id="unauthenticated" [ngClass]="{'hidden' : connected}">
-  <button mat-raised-button color="basic"
+  <button mat-raised-button color="primary"
           [ngClass]="{'hidden' : registration_button_disabled}"
           (click)="onRegisterClick()">Register
   </button>
-  <button mat-raised-button color="primary"
+  <button mat-raised-button color="accent"
           [ngClass]="{'hidden' : connection_button_disabled}"
           (click)="onLoginClick()">Login</button>
 </div>

@@ -3,9 +3,8 @@
   <div>
     <a href="#">
       <img src="assets/svg/logo.svg">
-      <h2 id="title">AlhuileCiné</h2>
+      <h2 id="title">Mw-Map</h2>
     </a>
-    <app-navbar></app-navbar>
   </div>
 
   <div class="right-bloc">
@@ -27,26 +26,6 @@
       <button mat-menu-item [ngClass]="{'hidden' : connected}" (click)="onAuthClick('register')">
         <span>Register</span>
       </button>
-
-      <mat-divider [ngClass]="{'hidden' : connected}"></mat-divider>
-
-      <a mat-menu-item href="">
-        <span>Home</span>
-      </a>
-
-      <a mat-menu-item href="movies">
-        <span>Films</span>
-      </a>
-
-      <a mat-menu-item href="categories">
-        <span>Genres</span>
-      </a>
-
-      <a mat-menu-item href="actors">
-        <span>Acteurs</span>
-      </a>
-
-      <mat-divider [ngClass]="{'hidden' : !connected}"></mat-divider>
 
       <button mat-menu-item [ngClass]="{'hidden' : !connected}" (click)="onAuthClick('logout')">
         <mat-icon>logout</mat-icon>
