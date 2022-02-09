@@ -6,6 +6,19 @@ $breakpoints-xl: 1200px;
 $breakpoints-xxl: 1400px;
 
 :host {
+
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+
+  a{
+    margin-top: 10px;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+  }
+
   form {
       display: flex;
       flex-direction: column;
@@ -22,18 +35,14 @@ $breakpoints-xxl: 1400px;
       width: 100%;
     }
   }
-}
 
-:host{
-  display: flex;
-  flex-direction: column;
-  align-items: center;
   mat-card{
     width: 100%;
-    padding: 5px;
+    height: 100%;
+    padding: 50px 10px;
     transition: none !important;
     box-shadow: none !important;
-    border-radius: 0;
+    border-radius: 0 !important;
   }
 
   @media (min-width: $breakpoints-sm) {
@@ -41,14 +50,15 @@ $breakpoints-xxl: 1400px;
       width: 100%;
       padding: 50px 50px;
       box-shadow: 2px 2px 10px rgba(0, 0, 0, 0.22) !important;
-      border-radius: 5px;
+      border-radius: 5px !important;
     }
   }
 
   @media (min-width: $breakpoints-md) {
     mat-card{
+      margin: 50px 0;
+      height: auto;
       width: 700px;
-      padding: 50px 50px;
     }
   }
 
@@ -59,10 +69,4 @@ $breakpoints-xxl: 1400px;
     }
   }
 
-  a{
-    margin-top: 10px;
-    display: flex;
-    flex-direction: row;
-    align-items: center;
-  }
 }
