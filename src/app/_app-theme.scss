@@ -4,6 +4,7 @@
 @use '/src/app/shared/components/footer/footer-theme' as footer;
 @use '/src/app/shared/components/header/header-theme' as header;
 @use '/src/app/shared/components/theme-switch/theme-switch-theme' as theme-switch;
+@use '/src/app/shared/components/profil-fab/profil-fab-theme' as profil-fab;
 
 @mixin theme($theme) {
 
@@ -22,5 +23,6 @@
   @include footer.theme($theme);
   @include header.theme($theme);
   @include theme-switch.theme($theme);
+  @include profil-fab.theme($theme);
 }
 

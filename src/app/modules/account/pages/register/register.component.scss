@@ -7,8 +7,16 @@ $breakpoints-xxl: 1400px;
 
 :host {
   display: flex;
+  flex-direction: column;
   align-items: center;
   width: 100%;
+
+  a{
+    margin-top: 10px;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+  }
 
   form {
     display: flex;
@@ -27,34 +35,44 @@ $breakpoints-xxl: 1400px;
       width: 100%;
     }
   }
-}
 
+  .user-info-container{
+    width: inherit;
+  }
 
-:host{
-  display: flex;
-  flex-direction: column;
-  align-items: center;
   mat-card{
     width: 100%;
-    padding: 5px;
+    height: 100%;
+    padding: 50px 10px;
     transition: none !important;
     box-shadow: none !important;
-    border-radius: 0;
+    border-radius: 0 !important;
   }
 
   @media (min-width: $breakpoints-sm) {
     mat-card{
-      width: 100%;
       padding: 50px 50px;
       box-shadow: 2px 2px 10px rgba(0, 0, 0, 0.22) !important;
-      border-radius: 5px;
+      border-radius: 5px !important;
     }
   }
 
   @media (min-width: $breakpoints-md) {
     mat-card{
       width: 700px;
+      height: auto;
+      margin: 50px 0;
       padding: 50px 50px;
+    }
+
+    .user-info-container{
+      display: flex;
+      flex-direction: row;
+
+      mat-form-field ~ mat-form-field{
+        margin-left: 20px;
+      }
+
     }
   }
 
@@ -63,12 +81,5 @@ $breakpoints-xxl: 1400px;
       width: 800px;
       padding: 50px 200px;
     }
-  }
-
-  a{
-    margin-top: 10px;
-    display: flex;
-    flex-direction: row;
-    align-items: center;
   }
 }

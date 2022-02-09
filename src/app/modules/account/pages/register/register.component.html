@@ -3,15 +3,28 @@
 
     <h2>Register</h2>
 
-    <mat-form-field appearance="fill">
-      <label for="name">Username: </label>
-      <input id="name" type="text" required
-             matInput formControlName="username" [errorStateMatcher]="matcher"
-             placeholder="votre nom d'utilisateur">
-      <mat-error *ngIf="registerForm.controls['email'].hasError('required')">
-        Username is <strong>required</strong>
-      </mat-error>
-    </mat-form-field>
+    <div class="user-info-container">
+      <mat-form-field appearance="fill">
+        <label for="firstname">Firstname: </label>
+        <input id="firstname" type="text" required
+               matInput formControlName="firstname" [errorStateMatcher]="matcher"
+               placeholder="votre prénom">
+        <mat-error *ngIf="registerForm.controls['firstname'].hasError('required')">
+          Firstname is <strong>required</strong>
+        </mat-error>
+      </mat-form-field>
+
+      <mat-form-field appearance="fill">
+        <label for="lastname">Lastname: </label>
+        <input id="lastname" type="text" required
+               matInput formControlName="lastname" [errorStateMatcher]="matcher"
+               placeholder="votre nom">
+        <mat-error *ngIf="registerForm.controls['lastname'].hasError('required')">
+          Lastname is <strong>required</strong>
+        </mat-error>
+      </mat-form-field>
+    </div>
+
 
     <mat-form-field appearance="fill">
       <label for="username">Email: </label>
@@ -38,7 +51,7 @@
       </mat-error>
     </mat-form-field>
 
-    <button mat-raised-button color="primary" type="submit" [disabled]="!registerForm.valid">Register</button>
+    <button mat-raised-button color="accent" type="submit" [disabled]="!registerForm.valid">Register</button>
   </form>
 
   <div id="login-form-options">

@@ -17,7 +17,7 @@ export class ProfilFabComponent implements OnInit {
   @Output() clickButton = new EventEmitter<String>()
 
   constructor() {
-    this.username = 'username'
+    this.username = 'Prénom Nom'
     this.connected = true
     this.connection_button_disabled = false;
     this.registration_button_disabled = false;

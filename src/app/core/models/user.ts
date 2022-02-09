@@ -78,8 +78,8 @@ export class UserAdapter {
     return new User(
       item.id,
       item.email,
-      item.username,
-      item.username,
+      item.firstname,
+      item.lastname,
       item.accessToken,
       item.tokenType
     )
@@ -92,7 +92,8 @@ export class UserAdapter {
 export class RegisterRequestAdapter {
   public static adapt(user: User, password: string): any {
     return {
-      username: user.firstname,
+      firstname: user.firstname,
+      lastname: user.lastname,
       email: user.email,
       password: password
     }

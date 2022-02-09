@@ -24,11 +24,10 @@ export class RegisterComponent implements OnInit {
   }
 
   registerForm = new FormGroup({
-    username: new FormControl('', [Validators.required]),
+    firstname: new FormControl('', [Validators.required]),
+    lastname: new FormControl('', [Validators.required]),
     email: new FormControl('', [Validators.required, Validators.email]),
-
     password: new FormControl('', [Validators.required, Validators.min(3)]),
-
   });
 
 
@@ -58,8 +57,8 @@ export class RegisterComponent implements OnInit {
     let user: User = new User(
       null,
       this.registerForm.value.email,
-      this.registerForm.value.username,
-      this.registerForm.value.username,
+      this.registerForm.value.firstname,
+      this.registerForm.value.lastname,
       null,
       null)
     this.authService.register(user, this.registerForm.value.password)

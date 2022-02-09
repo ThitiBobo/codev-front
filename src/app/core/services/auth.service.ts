@@ -52,6 +52,11 @@ export class AuthService {
 
   register(user: User, password: string) {
     let item = RegisterRequestAdapter.adapt(user, password)
-    return this.http.post(`${environment.apiUrl}/auth/register`, item);
+    return this.http.post(`${environment.apiUrl}/auth/register`, item)
+      .pipe(map( item => {
+        let user = UserAdapter.adapt(item)
+        this.userValue = user
+        return user;
+      }));
   }
 }
