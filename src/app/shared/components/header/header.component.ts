@@ -1,6 +1,7 @@
-import {Component, Input, OnInit} from '@angular/core';
+import {ChangeDetectorRef, Component, Input, OnInit} from '@angular/core';
 import {Router} from "@angular/router";
 import {AuthService} from "../../../core/services/auth.service";
+import {User} from "../../../core/models/user";
 
 @Component({
   selector: 'app-header',
@@ -20,8 +21,15 @@ export class HeaderComponent{
   @Input() username!: string;
 
   constructor(private router: Router,
-              private authService: AuthService) {
+              private authService: AuthService)
+  {
     this.authService.user.subscribe((nextValue) => {
+
+      console.log("header")
+      console.log(nextValue instanceof User)
+      console.log(nextValue)
+      console.log(this.authService.userValue)
+      console.log("header")
       this.connected = nextValue != null  // this will happen on every change
       if (nextValue != null) {
         this.username = nextValue.firstname + ' ' + nextValue.lastname

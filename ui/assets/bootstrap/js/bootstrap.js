@@ -136,7 +136,7 @@
   };
 
   const getSelector = element => {
-    let selector = element.getAttribute('data-bs-target');
+    let selector = element.getAttribute('list-bs-target');
 
     if (!selector || selector === '#') {
       let hrefAttr = element.getAttribute('href'); // The only valid content that could double as a selector are IDs or classes,
@@ -294,7 +294,7 @@
       jQuery
     } = window;
 
-    if (jQuery && !document.body.hasAttribute('data-bs-no-jquery')) {
+    if (jQuery && !document.body.hasAttribute('list-bs-no-jquery')) {
       return jQuery;
     }
 
@@ -693,7 +693,7 @@
 
   /**
    * --------------------------------------------------------------------------
-   * Bootstrap (v5.0.2): dom/data.js
+   * Bootstrap (v5.0.2): dom/list.js
    * Licensed under MIT (https://github.com/twbs/bootstrap/blob/main/LICENSE)
    * --------------------------------------------------------------------------
    */
@@ -826,8 +826,8 @@
   const NAME$c = 'alert';
   const DATA_KEY$b = 'bs.alert';
   const EVENT_KEY$b = `.${DATA_KEY$b}`;
-  const DATA_API_KEY$8 = '.data-api';
-  const SELECTOR_DISMISS = '[data-bs-dismiss="alert"]';
+  const DATA_API_KEY$8 = '.list-api';
+  const SELECTOR_DISMISS = '[list-bs-dismiss="alert"]';
   const EVENT_CLOSE = `close${EVENT_KEY$b}`;
   const EVENT_CLOSED = `closed${EVENT_KEY$b}`;
   const EVENT_CLICK_DATA_API$7 = `click${EVENT_KEY$b}${DATA_API_KEY$8}`;
@@ -934,9 +934,9 @@
   const NAME$b = 'button';
   const DATA_KEY$a = 'bs.button';
   const EVENT_KEY$a = `.${DATA_KEY$a}`;
-  const DATA_API_KEY$7 = '.data-api';
+  const DATA_API_KEY$7 = '.list-api';
   const CLASS_NAME_ACTIVE$3 = 'active';
-  const SELECTOR_DATA_TOGGLE$5 = '[data-bs-toggle="button"]';
+  const SELECTOR_DATA_TOGGLE$5 = '[list-bs-toggle="button"]';
   const EVENT_CLICK_DATA_API$6 = `click${EVENT_KEY$a}${DATA_API_KEY$7}`;
   /**
    * ------------------------------------------------------------------------
@@ -1079,7 +1079,7 @@
   const NAME$a = 'carousel';
   const DATA_KEY$9 = 'bs.carousel';
   const EVENT_KEY$9 = `.${DATA_KEY$9}`;
-  const DATA_API_KEY$6 = '.data-api';
+  const DATA_API_KEY$6 = '.list-api';
   const ARROW_LEFT_KEY = 'ArrowLeft';
   const ARROW_RIGHT_KEY = 'ArrowRight';
   const TOUCHEVENT_COMPAT_WAIT = 500; // Time for mouse compat events to fire after touch
@@ -1136,9 +1136,9 @@
   const SELECTOR_ITEM_IMG = '.carousel-item img';
   const SELECTOR_NEXT_PREV = '.carousel-item-next, .carousel-item-prev';
   const SELECTOR_INDICATORS = '.carousel-indicators';
-  const SELECTOR_INDICATOR = '[data-bs-target]';
-  const SELECTOR_DATA_SLIDE = '[data-bs-slide], [data-bs-slide-to]';
-  const SELECTOR_DATA_RIDE = '[data-bs-ride="carousel"]';
+  const SELECTOR_INDICATOR = '[list-bs-target]';
+  const SELECTOR_DATA_SLIDE = '[list-bs-slide], [list-bs-slide-to]';
+  const SELECTOR_DATA_RIDE = '[list-bs-ride="carousel"]';
   const POINTER_TYPE_TOUCH = 'touch';
   const POINTER_TYPE_PEN = 'pen';
   /**
@@ -1390,7 +1390,7 @@
         const indicators = SelectorEngine.find(SELECTOR_INDICATOR, this._indicatorsElement);
 
         for (let i = 0; i < indicators.length; i++) {
-          if (Number.parseInt(indicators[i].getAttribute('data-bs-slide-to'), 10) === this._getItemIndex(element)) {
+          if (Number.parseInt(indicators[i].getAttribute('list-bs-slide-to'), 10) === this._getItemIndex(element)) {
             indicators[i].classList.add(CLASS_NAME_ACTIVE$2);
             indicators[i].setAttribute('aria-current', 'true');
             break;
@@ -1406,7 +1406,7 @@
         return;
       }
 
-      const elementInterval = Number.parseInt(element.getAttribute('data-bs-interval'), 10);
+      const elementInterval = Number.parseInt(element.getAttribute('list-bs-interval'), 10);
 
       if (elementInterval) {
         this._config.defaultInterval = this._config.defaultInterval || this._config.interval;
@@ -1569,7 +1569,7 @@
       const config = { ...Manipulator.getDataAttributes(target),
         ...Manipulator.getDataAttributes(this)
       };
-      const slideIndex = this.getAttribute('data-bs-slide-to');
+      const slideIndex = this.getAttribute('list-bs-slide-to');
 
       if (slideIndex) {
         config.interval = false;
@@ -1624,7 +1624,7 @@
   const NAME$9 = 'collapse';
   const DATA_KEY$8 = 'bs.collapse';
   const EVENT_KEY$8 = `.${DATA_KEY$8}`;
-  const DATA_API_KEY$5 = '.data-api';
+  const DATA_API_KEY$5 = '.list-api';
   const Default$8 = {
     toggle: true,
     parent: ''
@@ -1645,7 +1645,7 @@
   const WIDTH = 'width';
   const HEIGHT = 'height';
   const SELECTOR_ACTIVES = '.show, .collapsing';
-  const SELECTOR_DATA_TOGGLE$4 = '[data-bs-toggle="collapse"]';
+  const SELECTOR_DATA_TOGGLE$4 = '[list-bs-toggle="collapse"]';
   /**
    * ------------------------------------------------------------------------
    * Class Definition
@@ -1712,7 +1712,7 @@
       if (this._parent) {
         actives = SelectorEngine.find(SELECTOR_ACTIVES, this._parent).filter(elem => {
           if (typeof this._config.parent === 'string') {
-            return elem.getAttribute('data-bs-parent') === this._config.parent;
+            return elem.getAttribute('list-bs-parent') === this._config.parent;
           }
 
           return elem.classList.contains(CLASS_NAME_COLLAPSE);
@@ -1979,7 +1979,7 @@
   const NAME$8 = 'dropdown';
   const DATA_KEY$7 = 'bs.dropdown';
   const EVENT_KEY$7 = `.${DATA_KEY$7}`;
-  const DATA_API_KEY$4 = '.data-api';
+  const DATA_API_KEY$4 = '.list-api';
   const ESCAPE_KEY$2 = 'Escape';
   const SPACE_KEY = 'Space';
   const TAB_KEY = 'Tab';
@@ -2001,7 +2001,7 @@
   const CLASS_NAME_DROPEND = 'dropend';
   const CLASS_NAME_DROPSTART = 'dropstart';
   const CLASS_NAME_NAVBAR = 'navbar';
-  const SELECTOR_DATA_TOGGLE$3 = '[data-bs-toggle="dropdown"]';
+  const SELECTOR_DATA_TOGGLE$3 = '[list-bs-toggle="dropdown"]';
   const SELECTOR_MENU = '.dropdown-menu';
   const SELECTOR_NAVBAR_NAV = '.navbar-nav';
   const SELECTOR_VISIBLE_ITEMS = '.dropdown-menu .dropdown-item:not(.disabled):not(:disabled)';
@@ -2683,7 +2683,7 @@
   const NAME$6 = 'modal';
   const DATA_KEY$6 = 'bs.modal';
   const EVENT_KEY$6 = `.${DATA_KEY$6}`;
-  const DATA_API_KEY$3 = '.data-api';
+  const DATA_API_KEY$3 = '.list-api';
   const ESCAPE_KEY$1 = 'Escape';
   const Default$5 = {
     backdrop: true,
@@ -2713,8 +2713,8 @@
   const CLASS_NAME_STATIC = 'modal-static';
   const SELECTOR_DIALOG = '.modal-dialog';
   const SELECTOR_MODAL_BODY = '.modal-body';
-  const SELECTOR_DATA_TOGGLE$2 = '[data-bs-toggle="modal"]';
-  const SELECTOR_DATA_DISMISS$2 = '[data-bs-dismiss="modal"]';
+  const SELECTOR_DATA_TOGGLE$2 = '[list-bs-toggle="modal"]';
+  const SELECTOR_DATA_DISMISS$2 = '[list-bs-dismiss="modal"]';
   /**
    * ------------------------------------------------------------------------
    * Class Definition
@@ -3122,7 +3122,7 @@
   const NAME$5 = 'offcanvas';
   const DATA_KEY$5 = 'bs.offcanvas';
   const EVENT_KEY$5 = `.${DATA_KEY$5}`;
-  const DATA_API_KEY$2 = '.data-api';
+  const DATA_API_KEY$2 = '.list-api';
   const EVENT_LOAD_DATA_API$1 = `load${EVENT_KEY$5}${DATA_API_KEY$2}`;
   const ESCAPE_KEY = 'Escape';
   const Default$4 = {
@@ -3145,8 +3145,8 @@
   const EVENT_CLICK_DATA_API$1 = `click${EVENT_KEY$5}${DATA_API_KEY$2}`;
   const EVENT_CLICK_DISMISS$1 = `click.dismiss${EVENT_KEY$5}`;
   const EVENT_KEYDOWN_DISMISS = `keydown.dismiss${EVENT_KEY$5}`;
-  const SELECTOR_DATA_DISMISS$1 = '[data-bs-dismiss="offcanvas"]';
-  const SELECTOR_DATA_TOGGLE$1 = '[data-bs-toggle="offcanvas"]';
+  const SELECTOR_DATA_DISMISS$1 = '[list-bs-dismiss="offcanvas"]';
+  const SELECTOR_DATA_TOGGLE$1 = '[list-bs-toggle="offcanvas"]';
   /**
    * ------------------------------------------------------------------------
    * Class Definition
@@ -3381,7 +3381,7 @@
 
   const SAFE_URL_PATTERN = /^(?:(?:https?|mailto|ftp|tel|file):|[^#&/:?]*(?:[#/?]|$))/i;
   /**
-   * A pattern that matches safe data URLs. Only matches image, video and audio types.
+   * A pattern that matches safe list URLs. Only matches image, video and audio types.
    *
    * Shoutout to Angular 7 https://github.com/angular/angular/blob/7.2.4/packages/core/src/sanitization/url_sanitizer.ts
    */
@@ -3855,7 +3855,7 @@
     }
 
     getTitle() {
-      let title = this._element.getAttribute('data-bs-original-title');
+      let title = this._element.getAttribute('list-bs-original-title');
 
       if (!title) {
         title = typeof this._config.title === 'function' ? this._config.title.call(this._element) : this._config.title;
@@ -3988,10 +3988,10 @@
     _fixTitle() {
       const title = this._element.getAttribute('title');
 
-      const originalTitleType = typeof this._element.getAttribute('data-bs-original-title');
+      const originalTitleType = typeof this._element.getAttribute('list-bs-original-title');
 
       if (title || originalTitleType !== 'string') {
-        this._element.setAttribute('data-bs-original-title', title || '');
+        this._element.setAttribute('list-bs-original-title', title || '');
 
         if (title && !this._element.getAttribute('aria-label') && !this._element.textContent) {
           this._element.setAttribute('aria-label', title);
@@ -4277,7 +4277,7 @@
     }
 
     _getContent() {
-      return this._element.getAttribute('data-bs-content') || this._config.content;
+      return this._element.getAttribute('list-bs-content') || this._config.content;
     }
 
     _cleanTipClass() {
@@ -4330,7 +4330,7 @@
   const NAME$2 = 'scrollspy';
   const DATA_KEY$2 = 'bs.scrollspy';
   const EVENT_KEY$2 = `.${DATA_KEY$2}`;
-  const DATA_API_KEY$1 = '.data-api';
+  const DATA_API_KEY$1 = '.list-api';
   const Default$1 = {
     offset: 10,
     method: 'auto',
@@ -4346,7 +4346,7 @@
   const EVENT_LOAD_DATA_API = `load${EVENT_KEY$2}${DATA_API_KEY$1}`;
   const CLASS_NAME_DROPDOWN_ITEM = 'dropdown-item';
   const CLASS_NAME_ACTIVE$1 = 'active';
-  const SELECTOR_DATA_SPY = '[data-bs-spy="scroll"]';
+  const SELECTOR_DATA_SPY = '[list-bs-spy="scroll"]';
   const SELECTOR_NAV_LIST_GROUP$1 = '.nav, .list-group';
   const SELECTOR_NAV_LINKS = '.nav-link';
   const SELECTOR_NAV_ITEMS = '.nav-item';
@@ -4581,7 +4581,7 @@
   const NAME$1 = 'tab';
   const DATA_KEY$1 = 'bs.tab';
   const EVENT_KEY$1 = `.${DATA_KEY$1}`;
-  const DATA_API_KEY = '.data-api';
+  const DATA_API_KEY = '.list-api';
   const EVENT_HIDE$1 = `hide${EVENT_KEY$1}`;
   const EVENT_HIDDEN$1 = `hidden${EVENT_KEY$1}`;
   const EVENT_SHOW$1 = `show${EVENT_KEY$1}`;
@@ -4595,7 +4595,7 @@
   const SELECTOR_NAV_LIST_GROUP = '.nav, .list-group';
   const SELECTOR_ACTIVE = '.active';
   const SELECTOR_ACTIVE_UL = ':scope > li > .active';
-  const SELECTOR_DATA_TOGGLE = '[data-bs-toggle="tab"], [data-bs-toggle="pill"], [data-bs-toggle="list"]';
+  const SELECTOR_DATA_TOGGLE = '[list-bs-toggle="tab"], [list-bs-toggle="pill"], [list-bs-toggle="list"]';
   const SELECTOR_DROPDOWN_TOGGLE = '.dropdown-toggle';
   const SELECTOR_DROPDOWN_ACTIVE_CHILD = ':scope > .dropdown-menu .active';
   /**
@@ -4802,7 +4802,7 @@
     autohide: true,
     delay: 5000
   };
-  const SELECTOR_DATA_DISMISS = '[data-bs-dismiss="toast"]';
+  const SELECTOR_DATA_DISMISS = '[list-bs-dismiss="toast"]';
   /**
    * ------------------------------------------------------------------------
    * Class Definition

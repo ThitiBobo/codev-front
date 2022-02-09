@@ -1,6 +1,6 @@
 import {Injectable} from "@angular/core";
 
-export class User {
+export class User{
   private _id!: string | null;
   private _email: string;
   private _firstname: string
@@ -21,15 +21,15 @@ export class User {
   }
 
 
-  get id(): string | null {
+  public get id(): string | null {
     return this._id;
   }
 
-  set id(value: string | null) {
+  public set id(value: string | null) {
     this._id = value;
   }
 
-  get email(): string {
+  public get email(): string {
     return this._email;
   }
 
@@ -80,7 +80,7 @@ export class UserAdapter {
       item.email,
       item.firstname,
       item.lastname,
-      item.accessToken,
+      item.token,
       item.tokenType
     )
   }

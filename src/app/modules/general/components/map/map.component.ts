@@ -2,10 +2,10 @@ import {Component, Input, OnInit} from '@angular/core';
 import {HttpClientModule} from '@angular/common/http';
 
 import * as L from 'leaflet';
-import {MetropolisService} from "../../../core/services/metropolis.service";
-import {Metropolis} from "../../../core/models/metropolis";
-import {Data} from "../../../core/models/data";
-import {DataService} from "../../../core/services/data.service";
+import {MetropolisService} from "../../../../core/services/metropolis.service";
+import {Metropolis} from "../../../../core/models/metropolis";
+import {Data} from "../../../../core/models/data";
+import {DataService} from "../../../../core/services/data.service";
 import {DatePipe} from "@angular/common";
 import {bounds, LatLng, LatLngBounds} from "leaflet";
 

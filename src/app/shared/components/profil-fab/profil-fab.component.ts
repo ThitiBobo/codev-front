@@ -1,4 +1,4 @@
-import {Component, EventEmitter, Input, OnInit, Output} from '@angular/core';
+import {Component, EventEmitter, Input, OnChanges, OnInit, Output, SimpleChanges} from '@angular/core';
 import { faUser } from "@fortawesome/free-solid-svg-icons/faUser";
 
 @Component({
@@ -6,7 +6,7 @@ import { faUser } from "@fortawesome/free-solid-svg-icons/faUser";
   templateUrl: './profil-fab.component.html',
   styleUrls: ['./profil-fab.component.scss']
 })
-export class ProfilFabComponent implements OnInit {
+export class ProfilFabComponent implements OnInit, OnChanges {
 
   faUser = faUser;
   @Input() username: string
@@ -36,6 +36,11 @@ export class ProfilFabComponent implements OnInit {
 
   onLogoutClick() {
     this.clickButton.emit('logout')
+  }
+
+  ngOnChanges(changes: SimpleChanges): void {
+    console.log("change")
+    console.log(changes)
   }
 
 }

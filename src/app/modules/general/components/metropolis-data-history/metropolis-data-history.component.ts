@@ -11,7 +11,7 @@ import {
   ApexTitleSubtitle,
   ApexLegend
 } from "ng-apexcharts";
-import {DataService} from "../../../core/services/data.service";
+import {DataService} from "../../../../core/services/data.service";
 import {Observable} from "rxjs";
 
 export type ChartOptions = {

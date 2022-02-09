@@ -16,10 +16,16 @@ export class AuthService {
     private router: Router,
     private http: HttpClient
   ){
-
-    this.userSubject = new BehaviorSubject<User>(JSON.parse(<string>localStorage.getItem('user')));
-    this.user = this.userSubject.asObservable();
-
+    const value = JSON.parse(<string>localStorage.getItem('user'))
+    const u = new User(
+      value._id,
+      value._email,
+      value._firstname,
+      value._lastname,
+      value._token,
+      value._tokenType)
+    this.userSubject = new BehaviorSubject<User>(u)
+    this.user = this.userSubject.asObservable()
   }
 
   public isUserExist(): boolean{
