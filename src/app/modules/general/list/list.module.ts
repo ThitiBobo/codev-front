@@ -8,6 +8,7 @@ import {MetropolisDataHistoryComponent} from "../metropolis-data-history/metropo
 import { NgApexchartsModule } from "ng-apexcharts";
 import { LeafletModule } from '@asymmetrik/ngx-leaflet';
 import {MapComponent} from "../map/map.component";
+import {MatDividerModule} from "@angular/material/divider";
 
 @NgModule({
   declarations: [
@@ -22,6 +23,7 @@ import {MapComponent} from "../map/map.component";
     MatExpansionModule,
     NgApexchartsModule,
     LeafletModule,
+    MatDividerModule,
   ],
   exports: [
     ListComponent

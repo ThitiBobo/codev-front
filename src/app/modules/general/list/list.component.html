@@ -3,26 +3,34 @@
   <h1>Carte des données</h1>
 
   <div>
-  <app-map></app-map>
+    <app-map></app-map>
   </div>
 
-  <h1>Données favorites</h1>
+  <mat-divider></mat-divider>
 
-  <!-- TODO : Only display if we have data -->
+  <!--  TODO : RESPONSIVENESS (PADDING)   -->
 
-  <div *ngFor="let data of favouriteData">
-    <app-metropolis-data-card [data]="data"></app-metropolis-data-card>
+  <div *ngIf="favouriteData.length >0">
+    <h1>Données favorites</h1>
+
+    <div *ngFor="let data of favouriteData">
+      <app-metropolis-data-card [data]="data"></app-metropolis-data-card>
+    </div>
   </div>
 
-  <h1>Données les plus récentes</h1>
+  <div *ngIf="recentData.length >0">
+    <h1>Données les plus récentes</h1>
 
-  <div *ngFor="let data of recentData">
-    <app-metropolis-data-card [data]="data"></app-metropolis-data-card>
+    <div *ngFor="let data of recentData">
+      <app-metropolis-data-card [data]="data"></app-metropolis-data-card>
+    </div>
   </div>
 
-  <h1>Données plus anciennes</h1>
+  <div *ngIf="oldData.length >0">
+    <h1>Données plus anciennes</h1>
 
-  <div *ngFor="let data of oldData">
-    <app-metropolis-data-card [data]="data"></app-metropolis-data-card>
+    <div *ngFor="let data of oldData">
+      <app-metropolis-data-card [data]="data"></app-metropolis-data-card>
+    </div>
   </div>
 </div>

@@ -6,6 +6,6 @@
   flex-grow:1;
 }
 
-p{
-  padding: 50px;
+* {
+  padding: 20px;
 }

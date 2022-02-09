@@ -53,8 +53,6 @@ export class MetropolisDataHistoryComponent implements OnInit {
     this.extendEvent.subscribe(() => this.initChart())
   }
 
-  // TODO : CHECK OFFSET / RESPONSIVENESS
-
   initChart() {
     if (this.flag) {
       this.flag = false
@@ -72,10 +70,9 @@ export class MetropolisDataHistoryComponent implements OnInit {
             }
           ],
           chart: {
-            offsetX: -400,
+            offsetX: -0,
             type: "area",
             height: 350,
-            width: 1500,
             zoom: {
               enabled: true
             }

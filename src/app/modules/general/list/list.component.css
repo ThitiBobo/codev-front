@@ -4,4 +4,10 @@ h1 {
 
 .main {
   width: 100%;
+  padding: 30px;
+}
+
+mat-divider {
+  margin-bottom: 20px;
+  margin-top: 40px;
 }

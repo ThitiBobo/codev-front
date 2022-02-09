@@ -45,7 +45,8 @@ import {MatButtonModule} from "@angular/material/button";
     MatIconModule,
     MatButtonModule,
     FontAwesomeModule,
-    BrowserAnimationsModule
+    BrowserAnimationsModule,
+    MatButtonModule
   ],
   providers: [{provide: HTTP_INTERCEPTORS, useClass: JwtInterceptor, multi: true}, DatePipe],
   exports: [

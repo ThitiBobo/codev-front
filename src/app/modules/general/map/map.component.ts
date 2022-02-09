@@ -55,7 +55,7 @@ export class MapComponent implements OnInit {
           for (let data of datas) {
             if (data.code == metropolis.code) {
               let date = this.datePipe.transform(data.dateHour,'dd/MM/yyyy HH:mm');
-              let tag = "<b>Métropole :</b> " + data.metropolis + "<br/><b>Consommation :</b> " + data.consumption + "MWh <br/><b>Date de la donnée :</b> " + date
+              let tag = "<b>Métropole :</b> " + data.metropolis + "<br/><b>Consommation :</b> " + data.consumption + " MWh <br/><b>Date de la donnée :</b> " + date
               L.marker([metropolis.latitude, metropolis.longitude], {icon: myIcon}).bindPopup(tag).addTo(map).openPopup();
             }
           }
