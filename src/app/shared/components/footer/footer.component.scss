@@ -25,7 +25,7 @@ $breakpoints-xxl: 1400px;
 
   .github-account-container {
     display: flex;
-    flex-direction: row;
+    flex-direction: column;
     align-items: center;
     justify-items: center;
     justify-content: space-around;
@@ -64,6 +64,9 @@ $breakpoints-xxl: 1400px;
 @media (min-width: $breakpoints-md) {
   .footer{
     padding: 50px 100px;
+    .github-account-container{
+      flex-direction: row;
+    }
   }
 }
 
