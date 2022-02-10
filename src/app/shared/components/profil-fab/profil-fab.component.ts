@@ -6,7 +6,7 @@ import { faUser } from "@fortawesome/free-solid-svg-icons/faUser";
   templateUrl: './profil-fab.component.html',
   styleUrls: ['./profil-fab.component.scss']
 })
-export class ProfilFabComponent implements OnInit, OnChanges {
+export class ProfilFabComponent implements OnInit {
 
   faUser = faUser;
   @Input() username: string
