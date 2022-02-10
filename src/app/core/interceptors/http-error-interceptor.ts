@@ -1,13 +1,22 @@
 import { catchError, tap } from 'rxjs/operators';
-import { Injectable } from '@angular/core';
+import {Component, Injectable} from '@angular/core';
 import { HttpInterceptor, HttpRequest, HttpHandler, HttpEvent, HttpErrorResponse } from '@angular/common/http';
-import { Observable, throwError } from 'rxjs';
+import {Observable, Subject, throwError} from 'rxjs';
 import {AuthService} from "../services/auth.service";
+import {MatSnackBar} from "@angular/material/snack-bar";
+import {SnackBarMessageComponent} from "../../shared/components/snack-bar-message/snack-bar-message.component";
 
-@Injectable()
+@Injectable({
+  providedIn: 'root'
+})
 export class HttpErrorInterceptor implements HttpInterceptor {
+
+  public errorSubject: Subject<string> = new Subject<string>()
+
+  constructor(private snackBar: MatSnackBar) {
+  }
+
   intercept(request: HttpRequest<any>, next: HttpHandler): Observable<HttpEvent<any>> {
-    console.log("interceptor")
     return next.handle(request)
       .pipe(
         tap(data => console.log(data)),
@@ -21,30 +30,19 @@ export class HttpErrorInterceptor implements HttpInterceptor {
             console.error(
               `Backend returned code ${error.status}, ` +
               `body was: ${error.error}`);
+            console.log("error1")
+            this.errorSubject.next(error.message)
+
+
+            this.snackBar.open("Une erreur c'est produite","ok", {
+              duration: 5000,
+            });
+
           }
           // return an observable with a user-facing error message
           return throwError(
             'Something bad happened; please try again later.');
         })
       );
-  }
-}
-
-
-// TODO à delete
-@Injectable()
-export class ErrorInterceptor implements HttpInterceptor {
-  constructor(private accountService: AuthService) {}
-
-  intercept(request: HttpRequest<any>, next: HttpHandler): Observable<HttpEvent<any>> {
-    return next.handle(request).pipe(catchError(err => {
-      if (err.status === 401) {
-        // auto logout if 401 response returned from api
-        this.accountService.logout();
-      }
-
-      const error = err.error.message || err.statusText;
-      return throwError(error);
-    }))
   }
 }

@@ -22,6 +22,8 @@ import { ProfilFabComponent } from './shared/components/profil-fab/profil-fab.co
 import {MatButtonModule} from "@angular/material/button";
 import {GeneralModule} from "./modules/general/general.module";
 import {HttpErrorInterceptor} from "./core/interceptors/http-error-interceptor";
+import {MatSnackBarModule} from "@angular/material/snack-bar";
+import { SnackBarMessageComponent } from './shared/components/snack-bar-message/snack-bar-message.component';
 
 
 @NgModule({
@@ -32,6 +34,7 @@ import {HttpErrorInterceptor} from "./core/interceptors/http-error-interceptor";
     NavbarComponent,
     ThemeSwitchComponent,
     ProfilFabComponent,
+    SnackBarMessageComponent,
   ],
   imports: [
     BrowserModule,
@@ -48,6 +51,7 @@ import {HttpErrorInterceptor} from "./core/interceptors/http-error-interceptor";
     BrowserAnimationsModule,
     MatButtonModule,
     GeneralModule,
+    MatSnackBarModule,
   ],
   providers: [
     {provide: HTTP_INTERCEPTORS, useClass: JwtInterceptor, multi: true},
