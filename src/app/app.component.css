@@ -1,8 +1,8 @@
 
-:host {
+:host{
   width: 100%;
   /*display: flex;*/
-  display: inherit;
+  display: flex;
   flex-direction: column;
 
   min-height:100vh;
@@ -10,6 +10,6 @@
 }
 
 main{
-  display: inherit;
+  height: 100%;
   flex-grow:1; /* 4 */
 }

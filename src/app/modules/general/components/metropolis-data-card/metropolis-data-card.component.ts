@@ -5,7 +5,7 @@ import {Subject} from "rxjs";
 @Component({
   selector: 'app-metropolis-data-card',
   templateUrl: './metropolis-data-card.component.html',
-  styleUrls: ['./metropolis-data-card.component.css']
+  styleUrls: ['./metropolis-data-card.component.scss']
 })
 export class MetropolisDataCardComponent implements OnInit {
 
