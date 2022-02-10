@@ -22,8 +22,6 @@ export class JwtInterceptor implements HttpInterceptor {
           }
         });
       }
-      console.log(request)
-      console.log(next)
     }
 
     const user = this.accountService.userValue;

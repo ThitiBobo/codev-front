@@ -34,6 +34,5 @@ export class ApiBaseService<T> {
   }
 
   protected log(message: string) {
-    console.log(message);
   }
 }

@@ -52,10 +52,9 @@ export class RegisterComponent implements OnInit {
   }
 
   onSubmit() {
-    console.log(this.registerForm.value)
 
     let user: User = new User(
-      null,
+      null, null,
       this.registerForm.value.email,
       this.registerForm.value.firstname,
       this.registerForm.value.lastname,

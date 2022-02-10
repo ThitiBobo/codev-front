@@ -21,7 +21,6 @@ export class ListComponent implements OnInit {
       this.recentData = response.recentData.map(item => new Data(item.code, item.metropolis, item.dateHour, item.consumption))
       this.favouriteData = response.preferences.map(item => new Data(item.code, item.metropolis, item.dateHour, item.consumption))
       this.oldData = response.otherData.map(item => new Data(item.code, item.metropolis, item.dateHour, item.consumption))
-      console.log("response : ", response.recentData)
     })
   }
 

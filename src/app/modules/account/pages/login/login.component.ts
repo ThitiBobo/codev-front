@@ -45,7 +45,6 @@ export class LoginComponent implements OnInit{
   onSubmit() {
     this.submitted = true;
 
-    console.log(this.returnUrl)
     this.loading = true;
     this.authService.login(this.loginForm.value.login, this.loginForm.value.password)
       .subscribe(data => {

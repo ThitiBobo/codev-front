@@ -32,15 +32,15 @@
     </div>
 
     <div *ngFor="let data of favouriteData">
-      <app-metropolis-favourite-card [data]="data"></app-metropolis-favourite-card>
+      <app-metropolis-favourite-card [data]="data" [userId]="userId" [favorite]="true" (event)="updateFavorites()"></app-metropolis-favourite-card>
     </div>
   </div>
 
-  <div class="profile" *ngIf="recentData.concat(oldData).length > 0">
+  <div class="profile" *ngIf="otherData.length > 0">
     <h2>Autres Metropoles</h2>
 
-    <div *ngFor="let data of recentData.concat(oldData)">
-      <app-metropolis-favourite-card [data]="data"></app-metropolis-favourite-card>
+    <div *ngFor="let data of otherData">
+      <app-metropolis-favourite-card [data]="data" [userId]="userId" [favorite]="false" (event)="updateFavorites()"></app-metropolis-favourite-card>
     </div>
   </div>
 
