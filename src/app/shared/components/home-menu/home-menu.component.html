@@ -1,0 +1,16 @@
+<h3 [ngClass]="{'hidden' : !connected}">{{username}}</h3>
+
+<mat-divider [ngClass]="{'hidden' : !connected}"></mat-divider>
+
+<button mat-menu-item [ngClass]="{'hidden' : connected}" (click)="onAuthClick('login')">
+  <span>Login</span>
+</button>
+
+<button mat-menu-item [ngClass]="{'hidden' : connected}" (click)="onAuthClick('register')">
+  <span>Register</span>
+</button>
+
+<button mat-menu-item [ngClass]="{'hidden' : !connected}" (click)="onAuthClick('logout')">
+  <mat-icon>logout</mat-icon>
+  <span>Logout</span>
+</button>

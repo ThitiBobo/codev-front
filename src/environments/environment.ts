@@ -11,7 +11,7 @@ export const environment = {
       bootstrap: 'Bootstrap 5.0.1',
       fontawesome: 'Font Awesome 5.15.3',
     },
-  apiUrl: 'http://192.168.43.49:8080'
+  apiUrl: 'http://localhost:8080'
 };
 
 

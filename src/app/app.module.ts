@@ -25,6 +25,7 @@ import {HttpErrorInterceptor} from "./core/interceptors/http-error-interceptor";
 import {MatSnackBarModule} from "@angular/material/snack-bar";
 import { SnackBarMessageComponent } from './shared/components/snack-bar-message/snack-bar-message.component';
 import {MetropolisFavouriteCardComponent} from "./modules/general/metropolis-favourite-card/metropolis-favourite-card.component";
+import { HomeMenuComponent } from './shared/components/home-menu/home-menu.component';
 
 
 @NgModule({
@@ -36,6 +37,7 @@ import {MetropolisFavouriteCardComponent} from "./modules/general/metropolis-fav
     ThemeSwitchComponent,
     ProfilFabComponent,
     SnackBarMessageComponent,
+    HomeMenuComponent,
   ],
   imports: [
     BrowserModule,

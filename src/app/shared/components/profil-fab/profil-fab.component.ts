@@ -34,11 +34,11 @@ export class ProfilFabComponent implements OnInit {
     this.clickButton.emit('login')
   }
 
-  onLogoutClick() {
-    this.clickButton.emit('logout')
-  }
-
   onProfileClick() {
     this.clickButton.emit('profile')
+  }
+
+  onAuthClick(event: String) {
+    this.clickButton.emit(event)
   }
 }
