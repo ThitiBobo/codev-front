@@ -13,6 +13,7 @@ import {NotFoundComponent} from "./pages/not-found/not-found.component";
 import {HomeComponent} from "./pages/home/home.component";
 import {MatProgressSpinnerModule} from "@angular/material/progress-spinner";
 import {MatProgressBarModule} from "@angular/material/progress-bar";
+import {MatButtonModule} from "@angular/material/button";
 
 
 
@@ -34,7 +35,8 @@ import {MatProgressBarModule} from "@angular/material/progress-bar";
     LeafletModule,
     MatDividerModule,
     MatProgressSpinnerModule,
-    MatProgressBarModule
+    MatProgressBarModule,
+    MatButtonModule,
   ],
   exports: [
     ListComponent

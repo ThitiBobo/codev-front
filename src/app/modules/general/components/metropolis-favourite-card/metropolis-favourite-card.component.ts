@@ -1,5 +1,5 @@
 import {Component, Input, OnInit} from '@angular/core';
-import {Data} from "../../../core/models/data";
+import {Data} from "../../../../core/models/data";
 
 @Component({
   selector: 'app-metropolis-favourite-card',
