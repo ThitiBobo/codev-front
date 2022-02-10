@@ -1,8 +1,9 @@
 
     <div class="flex-container">
-      <div class="flex-infos">{{data.metropolis}}</div>
+      <div class="flex-infos">{{data.name}}</div>
       <div><button mat-icon-button color="warn" aria-label="favorite button" (click)="onClick()">
-        <mat-icon>favorite</mat-icon>
+        <mat-icon *ngIf="favorite">favorite</mat-icon>
+        <mat-icon *ngIf="!favorite">favorite_border</mat-icon>
       </button></div>
     </div>
 

@@ -18,12 +18,11 @@ export class MetropolisService extends ApiBaseService<MetropolisResponse> {
 
   list(): Observable<Metropolis[]> {
     const url = this.apiUrl + this.path
-    console.log(url)
 
     return this.http.get<any>(url).pipe(map(item => {
       let list: Metropolis[] = [];
       item.forEach((element: any) => {
-        list.push(new Metropolis(element.id, element.code, element.nom, element.longitude, element.latitude))
+        list.push(new Metropolis(element.id, element.code, element.name, element.longitude, element.latitude))
       })
       return list;
     }))

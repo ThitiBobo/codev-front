@@ -30,7 +30,6 @@ export class HttpErrorInterceptor implements HttpInterceptor {
             console.error(
               `Backend returned code ${error.status}, ` +
               `body was: ${error.error}`);
-            console.log("error1")
             this.errorSubject.next(error.message)
 
 

@@ -1,7 +1,6 @@
 import {User} from "./user";
 import {Metropolis, MetropolisAdapter} from "./metropolis";
 import {Injectable} from "@angular/core";
-import {Consumption, ConsumptionAdapter} from "./consumption";
 
 export class Profile{
   private _user!: User

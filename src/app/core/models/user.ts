@@ -2,6 +2,7 @@ import {Injectable} from "@angular/core";
 
 export class User{
   private _id!: string | null;
+  private _profileId!: string | null;
   private _email: string;
   private _firstname: string
   private _lastname: string
@@ -10,8 +11,9 @@ export class User{
   private _tokenType: string | null
 
 
-  constructor(id: string | null, email: string, firstname: string, lastname: string,
+  constructor(profileId: string | null, id: string | null, email: string, firstname: string, lastname: string,
               token: string | null, tokenType: string | null) {
+    this._profileId = profileId;
     this._id = id;
     this._email = email;
     this._firstname = firstname;
@@ -20,6 +22,14 @@ export class User{
     this._tokenType = tokenType;
   }
 
+
+  get profileId(): string | null {
+    return this._profileId;
+  }
+
+  set profileId(value: string | null) {
+    this._profileId = value;
+  }
 
   public get id(): string | null {
     return this._id;
@@ -76,6 +86,7 @@ export class User{
 export class UserAdapter {
   public static adapt(item: any): User {
     return new User(
+      item.profileId,
       item.id,
       item.email,
       item.firstname,

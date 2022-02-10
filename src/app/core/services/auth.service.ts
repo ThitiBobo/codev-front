@@ -19,6 +19,7 @@ export class AuthService {
     const value = JSON.parse(<string>localStorage.getItem('user'))
     if (value) {
       const u = new User(
+        value._profileId,
         value._id,
         value._email,
         value._firstname,
