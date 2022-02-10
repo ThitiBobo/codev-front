@@ -1,0 +1,31 @@
+<div class="main">
+
+  <h1>Carte des données</h1>
+
+  <div>
+    <app-map></app-map>
+  </div>
+
+  <!--  TODO : RESPONSIVENESS (PADDING)   -->
+
+  <div class="data-list" *ngIf="favouriteData.length >0">
+    <h2>Données favorites</h2>
+    <div *ngFor="let data of favouriteData">
+      <app-metropolis-data-card [data]="data"></app-metropolis-data-card>
+    </div>
+  </div>
+
+  <div class="data-list" *ngIf="recentData.length >0">
+    <h2>Données les plus récentes</h2>
+    <div *ngFor="let data of recentData">
+      <app-metropolis-data-card [data]="data"></app-metropolis-data-card>
+    </div>
+  </div>
+
+  <div class="data-list" *ngIf="oldData.length >0">
+    <h2>Données plus anciennes</h2>
+    <div *ngFor="let data of oldData">
+      <app-metropolis-data-card [data]="data"></app-metropolis-data-card>
+    </div>
+  </div>
+</div>

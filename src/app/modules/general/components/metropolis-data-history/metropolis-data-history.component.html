@@ -1,0 +1,17 @@
+
+<mat-spinner *ngIf="chartOptions == null" [color]="'accent'"></mat-spinner>
+<div id="chart" *ngIf="chartOptions != null">
+  <apx-chart #chart
+             [series]="chartOptions.series"
+             [chart]="chartOptions.chart"
+             [xaxis]="chartOptions.xaxis"
+             [stroke]="chartOptions.stroke"
+             [dataLabels]="chartOptions.dataLabels"
+             [yaxis]="chartOptions.yaxis"
+             [labels]="chartOptions.labels"
+             [legend]="chartOptions.legend"
+             [title]="chartOptions.title"
+             [subtitle]="chartOptions.subtitle"
+             [theme]="{mode: this.mode}"></apx-chart>
+
+</div>

@@ -23,7 +23,7 @@ export class DataService extends ApiBaseService<Data> {
     return this.http.get<any>(url)
       .pipe(
         retry(3),
-        catchError(this.handleError<DataList>('data.list', new DataList([], [], [])))
+        catchError(this.handleError<DataList>('list.list', new DataList([], [], [])))
       ).pipe(
         map(value => DataListAdapter.adapt(value))
       )

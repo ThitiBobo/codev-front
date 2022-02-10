@@ -9,23 +9,34 @@ import {environment} from "../../../environments/environment";
 @Injectable({ providedIn: 'root' })
 export class AuthService {
 
-  private userSubject!: BehaviorSubject<User>;
-  public user!: Observable<User>;
+  private userSubject!: BehaviorSubject<User | null>;
+  public user!: Observable<User | null>;
 
   constructor(
     private router: Router,
     private http: HttpClient
-  ){
+  ) {
+    const value = JSON.parse(<string>localStorage.getItem('user'))
+    if (value) {
+      const u = new User(
+        value._id,
+        value._email,
+        value._firstname,
+        value._lastname,
+        value._token,
+        value._tokenType)
+      this.userSubject = new BehaviorSubject<User | null>(u)
+    }else{
+      this.userSubject = new BehaviorSubject<User | null>(null)
+    }
 
-    this.userSubject = new BehaviorSubject<User>(JSON.parse(<string>localStorage.getItem('user')));
-    this.user = this.userSubject.asObservable();
-
+    this.user = this.userSubject.asObservable()
   }
 
   public isUserExist(): boolean{
     return localStorage.getItem('user') != undefined
   }
-  public get userValue(): User {
+  public get userValue(): User | null {
     return this.userSubject.value;
   }
 
