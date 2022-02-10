@@ -38,9 +38,7 @@ export class ProfilFabComponent implements OnInit, OnChanges {
     this.clickButton.emit('logout')
   }
 
-  ngOnChanges(changes: SimpleChanges): void {
-    console.log("change")
-    console.log(changes)
+  onProfileClick() {
+    this.clickButton.emit('profile')
   }
-
 }

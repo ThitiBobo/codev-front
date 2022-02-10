@@ -1,1 +1,52 @@
-<p>profile works!</p>
+<mat-card>
+  <div class="profile">
+    <h2>Profil</h2>
+
+    <div class="user-info-container">
+      <label>Prénom: </label>
+      <label>{{firstname}}</label>
+    </div>
+    <div class="user-info-container">
+      <label>Nom: </label>
+      <label>{{lastname}}</label>
+    </div>
+    <div class="user-info-container">
+      <label>Email: </label>
+      <label>{{email}}</label>
+    </div>
+  </div>
+
+  <div>
+    <a [routerLink]="[returnUrl]">
+      <mat-icon>arrow_back</mat-icon>
+      Back to Home page</a>
+  </div>
+</mat-card>
+
+<mat-card>
+  <div class="profile">
+    <h2>Favoris</h2>
+
+    <div *ngIf="favouriteData.length < 1">
+      Vous n'avez pas de données favorites <BR><BR>
+    </div>
+
+    <div *ngFor="let data of favouriteData">
+      <app-metropolis-favourite-card [data]="data"></app-metropolis-favourite-card>
+    </div>
+  </div>
+
+  <div class="profile" *ngIf="recentData.concat(oldData).length > 0">
+    <h2>Autres Metropoles</h2>
+
+    <div *ngFor="let data of recentData.concat(oldData)">
+      <app-metropolis-favourite-card [data]="data"></app-metropolis-favourite-card>
+    </div>
+  </div>
+
+  <div>
+    <a [routerLink]="[returnUrl]">
+      <mat-icon>arrow_back</mat-icon>
+      Back to Home page</a>
+  </div>
+</mat-card>

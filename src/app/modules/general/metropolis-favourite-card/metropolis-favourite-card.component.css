@@ -1,0 +1,18 @@
+.flex-container {
+  display : flex;
+  flex-direction: row;
+  width: 100%;
+  min-width: 400px;
+  justify-content: space-between;
+  margin: 30px;
+}
+
+.flex-infos {
+  display : flex;
+  flex-direction: row;
+  justify-content: space-between;
+}
+
+.flex-item {
+  margin-left: 50px;
+}

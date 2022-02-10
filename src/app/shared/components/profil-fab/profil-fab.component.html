@@ -15,6 +15,14 @@
 <mat-menu #menu="matMenu" xPosition="before">
   <h3>{{username}}</h3>
   <mat-divider></mat-divider>
+  <a href="/auth">
+    <button mat-menu-item (click)="onProfileClick()">
+      <mat-icon>person</mat-icon>
+      <span>Profile</span>
+    </button>
+  </a>
+
+  <mat-divider></mat-divider>
   <button mat-menu-item (click)="onLogoutClick()">
     <mat-icon>logout</mat-icon>
     <span>Logout</span>

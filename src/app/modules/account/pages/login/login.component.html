@@ -10,7 +10,7 @@
       <input id="first-name" type="email" required
              matInput formControlName="login" [errorStateMatcher]="matcher"
              placeholder="Ex. example@email.com">
-      <mat-hint>Errors appear instantly!</mat-hint>
+      <mat-hint>Enter your Email</mat-hint>
       <mat-error *ngIf="loginForm.hasError('email') && !loginForm.hasError('required')">
         Please enter a valid email address
       </mat-error>
