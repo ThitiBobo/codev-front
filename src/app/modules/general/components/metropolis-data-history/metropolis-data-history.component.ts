@@ -1,4 +1,4 @@
-import {Component, Input, OnInit, ViewChild} from "@angular/core";
+import {Component, Input, OnChanges, OnInit, SimpleChange, SimpleChanges, ViewChild} from "@angular/core";
 
 import {
   ChartComponent,
@@ -9,10 +9,11 @@ import {
   ApexStroke,
   ApexYAxis,
   ApexTitleSubtitle,
-  ApexLegend
+  ApexLegend, ApexTheme
 } from "ng-apexcharts";
 import {DataService} from "../../../../core/services/data.service";
 import {Observable} from "rxjs";
+import {ThemeService} from "../../../../core/services/theme.service";
 
 export type ChartOptions = {
   series: ApexAxisChartSeries;
@@ -32,7 +33,7 @@ export type ChartOptions = {
   templateUrl: "./metropolis-data-history.component.html",
   styleUrls: ["./metropolis-data-history.component.css"]
 })
-export class MetropolisDataHistoryComponent implements OnInit {
+export class MetropolisDataHistoryComponent implements OnInit{
 
   @Input() extendEvent!: Observable<void>
 
@@ -40,13 +41,19 @@ export class MetropolisDataHistoryComponent implements OnInit {
   @Input() dates: any[] = []
   @Input() code!: string
 
+  @Input() mode?: "light" | "dark" = this.themeService.isDarkMode() ? 'dark' : 'light';
+
   private subscribe: any
   private flag: boolean = true
 
   @ViewChild("chart") chart!: ChartComponent;
   public chartOptions!: ChartOptions;
 
-  constructor(private dataservice: DataService) {
+  constructor(private dataservice: DataService,
+              public themeService: ThemeService) {
+    this.themeService.modeSubject.subscribe(value => {
+      this.mode = <'light'| 'dark'| undefined>value
+    })
   }
 
   ngOnInit(): void {
