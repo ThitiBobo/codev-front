@@ -11,7 +11,7 @@ import {MatCardModule} from "@angular/material/card";
 import {MatFormFieldModule} from "@angular/material/form-field";
 import {MatButtonModule} from "@angular/material/button";
 import {MatInputModule} from "@angular/material/input";
-import {MetropolisFavouriteCardComponent} from "../general/metropolis-favourite-card/metropolis-favourite-card.component";
+import {MetropolisFavouriteCardComponent} from "../general/components/metropolis-favourite-card/metropolis-favourite-card.component";
 
 
 @NgModule({

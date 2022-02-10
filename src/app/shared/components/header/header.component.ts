@@ -24,21 +24,17 @@ export class HeaderComponent{
               private authService: AuthService)
   {
     this.authService.user.subscribe((nextValue) => {
-
-      console.log("header")
-      console.log(nextValue instanceof User)
-      console.log(nextValue)
-      console.log(this.authService.userValue)
-      console.log("header")
       this.connected = nextValue != null  // this will happen on every change
       if (nextValue != null) {
         this.username = nextValue.firstname + ' ' + nextValue.lastname
+        this.connected = true;
       }
     })
   }
 
   onAuthClick(event: String) {
     console.log(event)
+
     if (event == 'logout') {
       this.authService.logout()
       this.connected = false;

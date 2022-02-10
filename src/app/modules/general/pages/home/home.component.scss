@@ -1,0 +1,110 @@
+$breakpoints-xs: 0px;
+$breakpoints-sm: 576px;
+$breakpoints-md: 768px;
+$breakpoints-lg: 992px;
+$breakpoints-xl: 1200px;
+$breakpoints-xxl: 1400px;
+
+:host{
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  flex-grow:1;
+}
+
+p{
+  margin-bottom: 30px;
+}
+
+h1{
+  text-align: center;
+  font-family: OpenSans;
+  font-weight:normal;
+  font-size: 2.5em;
+  line-height: 1.5em;
+  margin-top: 20px;
+  margin-bottom: 50px;
+  b{
+    font-weight: bolder;
+  };
+}
+
+button{
+  display: flex;
+  border-radius: 50px;
+  padding: 10px 30px;
+  font-size: 1.2em;
+  margin: auto;
+}
+
+.hero-banner-container{
+  display: flex;
+  flex-direction: column;
+}
+
+.info-container{
+  margin: 50px 10px;
+}
+
+img {
+  width: 100%;
+  height: auto;
+}
+
+svg{
+  padding-bottom: 100px;
+}
+
+@media (min-width: $breakpoints-sm) {
+  .info-container{
+    margin: 50px 50px;
+  }
+}
+
+@media (min-width: $breakpoints-md) {
+  .info-container{
+    margin: 50px 100px;
+  }
+  img{
+    width: 700px;
+    height: fit-content;
+    margin: auto;
+    margin-top: 50px;
+  }
+}
+
+@media (min-width: $breakpoints-lg) {
+  .info-container{
+    margin: 50px 200px;
+  }
+  img{
+    width: 900px;
+    margin-top: 50px;
+  }
+}
+
+@media (min-width: $breakpoints-xl) {
+  img{
+    width: 500px;
+  }
+
+  .hero-banner-container{
+    padding: 100px 50px 50px 50px;
+    flex-direction: row;
+  }
+
+  .info-container{
+    margin: auto 50px
+  }
+}
+
+@media (min-width: $breakpoints-xxl) {
+  img{
+    width: 700px;
+  }
+
+  .hero-banner-container{
+    padding: 100px 100px 50px 100px;
+  }
+}

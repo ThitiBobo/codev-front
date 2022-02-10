@@ -5,6 +5,7 @@
 @use '/src/app/shared/components/header/header-theme' as header;
 @use '/src/app/shared/components/theme-switch/theme-switch-theme' as theme-switch;
 @use '/src/app/shared/components/profil-fab/profil-fab-theme' as profil-fab;
+@use '/src/app/modules/general/pages/home/home-theme' as home;
 
 @mixin theme($theme) {
 
@@ -20,9 +21,14 @@
     color: mat.get-color-from-palette($foreground, text);
   }
 
+  a.accent-link{
+    color: mat.get-color-from-palette($accent);
+  }
+
   @include footer.theme($theme);
   @include header.theme($theme);
   @include theme-switch.theme($theme);
   @include profil-fab.theme($theme);
+  @include home.theme($theme);
 }
 
