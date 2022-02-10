@@ -11,6 +11,8 @@ import {MetropolisDataHistoryComponent} from "./components/metropolis-data-histo
 import {MapComponent} from "./components/map/map.component";
 import {NotFoundComponent} from "./pages/not-found/not-found.component";
 import {HomeComponent} from "./pages/home/home.component";
+import {MatProgressSpinnerModule} from "@angular/material/progress-spinner";
+import {MatProgressBarModule} from "@angular/material/progress-bar";
 
 
 
@@ -31,6 +33,8 @@ import {HomeComponent} from "./pages/home/home.component";
     NgApexchartsModule,
     LeafletModule,
     MatDividerModule,
+    MatProgressSpinnerModule,
+    MatProgressBarModule
   ],
   exports: [
     ListComponent

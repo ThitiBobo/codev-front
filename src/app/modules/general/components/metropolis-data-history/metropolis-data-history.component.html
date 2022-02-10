@@ -1,5 +1,6 @@
+
+<mat-spinner *ngIf="chartOptions == null" [color]="'accent'"></mat-spinner>
 <div id="chart" *ngIf="chartOptions != null">
-  <p>{{mode}}</p>
   <apx-chart #chart
              [series]="chartOptions.series"
              [chart]="chartOptions.chart"

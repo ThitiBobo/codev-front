@@ -17,10 +17,12 @@ import {bounds, LatLng, LatLngBounds} from "leaflet";
 export class MapComponent implements OnInit {
 
   @Input() metropolis: Metropolis[] = []
-  @Input() subscribe: any
   @Input() recentData: Data[] = []
   @Input() favouriteData: Data[] = []
   @Input() oldData: Data[] = []
+  @Input() loaded: boolean = false
+
+  subscribe: any
 
   constructor(private metropolisservice : MetropolisService, private dataService: DataService, private datePipe: DatePipe) {
   }
@@ -50,6 +52,7 @@ export class MapComponent implements OnInit {
       this.oldData = response.otherData.map(item => new Data(item.code, item.metropolis, item.dateHour, item.consumption))
       let datas = this.recentData.concat(this.oldData).concat(this.favouriteData)
       this.subscribe = this.metropolisservice.list().subscribe(response => {
+        this.loaded = true
         this.metropolis = response
         for (let metropolis of this.metropolis) {
           for (let data of datas) {
