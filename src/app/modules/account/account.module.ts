@@ -11,6 +11,7 @@ import {MatCardModule} from "@angular/material/card";
 import {MatFormFieldModule} from "@angular/material/form-field";
 import {MatButtonModule} from "@angular/material/button";
 import {MatInputModule} from "@angular/material/input";
+import {MetropolisFavouriteCardComponent} from "../general/metropolis-favourite-card/metropolis-favourite-card.component";
 
 
 @NgModule({
@@ -18,6 +19,7 @@ import {MatInputModule} from "@angular/material/input";
     LoginComponent,
     RegisterComponent,
     ProfileComponent,
+    MetropolisFavouriteCardComponent
   ],
   imports: [
     CommonModule,
@@ -30,6 +32,6 @@ import {MatInputModule} from "@angular/material/input";
     MatInputModule,
     MatButtonModule,
 
-  ]
+  ],
 })
 export class AccountModule { }

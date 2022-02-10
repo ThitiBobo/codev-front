@@ -24,6 +24,7 @@ import {GeneralModule} from "./modules/general/general.module";
 import {HttpErrorInterceptor} from "./core/interceptors/http-error-interceptor";
 import {MatSnackBarModule} from "@angular/material/snack-bar";
 import { SnackBarMessageComponent } from './shared/components/snack-bar-message/snack-bar-message.component';
+import {MetropolisFavouriteCardComponent} from "./modules/general/metropolis-favourite-card/metropolis-favourite-card.component";
 
 
 @NgModule({
@@ -58,6 +59,7 @@ import { SnackBarMessageComponent } from './shared/components/snack-bar-message/
     {provide: HTTP_INTERCEPTORS, useClass: HttpErrorInterceptor, multi: true},
     DatePipe],
   exports: [
+
 
   ],
   bootstrap: [AppComponent]

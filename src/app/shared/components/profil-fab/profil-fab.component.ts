@@ -6,7 +6,7 @@ import { faUser } from "@fortawesome/free-solid-svg-icons/faUser";
   templateUrl: './profil-fab.component.html',
   styleUrls: ['./profil-fab.component.scss']
 })
-export class ProfilFabComponent implements OnInit, OnChanges {
+export class ProfilFabComponent implements OnInit {
 
   faUser = faUser;
   @Input() username: string
@@ -38,9 +38,7 @@ export class ProfilFabComponent implements OnInit, OnChanges {
     this.clickButton.emit('logout')
   }
 
-  ngOnChanges(changes: SimpleChanges): void {
-    console.log("change")
-    console.log(changes)
+  onProfileClick() {
+    this.clickButton.emit('profile')
   }
-
 }
