@@ -1,5 +1,7 @@
-import {Component, Input, OnInit} from '@angular/core';
+import {Component, EventEmitter, Input, OnInit, Output} from '@angular/core';
 import {Data} from "../../../../core/models/data";
+import {Metropolis} from "../../../../core/models/metropolis";
+import {ProfileService} from "../../../../core/services/profile.service";
 
 @Component({
   selector: 'app-metropolis-favourite-card',
@@ -7,14 +9,25 @@ import {Data} from "../../../../core/models/data";
   styleUrls: ['./metropolis-favourite-card.component.css']
 })
 export class MetropolisFavouriteCardComponent implements OnInit {
-  @Input() data!: Data
+  @Input() data!: Metropolis
+  @Input() userId!: number
+  @Input() favorite!: boolean
 
-  constructor() { }
+
+  @Output() event = new EventEmitter<any>();
+
+  constructor(private profileService: ProfileService) { }
 
   ngOnInit(): void {
   }
 
   onClick() {
-
+    if (this.favorite) {
+      this.profileService.delete(this.data.id)
+      this.event.emit()
+    } else {
+      this.profileService.add(this.userId, this.data.id)
+      this.event.emit()
+    }
   }
 }

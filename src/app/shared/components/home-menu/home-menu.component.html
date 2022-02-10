@@ -2,6 +2,13 @@
 
 <mat-divider [ngClass]="{'hidden' : !connected}"></mat-divider>
 
+<a href="/auth" [ngClass]="{'hidden' : !connected}">
+  <button mat-menu-item>
+    <mat-icon>person</mat-icon>
+    <span>Profile</span>
+  </button>
+</a>
+
 <button mat-menu-item [ngClass]="{'hidden' : connected}" (click)="onAuthClick('login')">
   <span>Login</span>
 </button>
